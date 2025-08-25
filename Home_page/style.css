@@ -1,11 +1,18 @@
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif; /* Fonte padrão */
+}
+
 /* Header */
 
 header {
   background: #34495e ;/* Cor de fundo */
   padding: 2vh; /* Espaçamento interno usando unidade relativa à altura da tela */
   text-align: end; /* Centraliza o texto */
-  list-style-type: none; /* Remove os marcadores da lista */
+  /* list-style-type: none; */ /* Remove os marcadores da lista */
 }
 
 ul li {
