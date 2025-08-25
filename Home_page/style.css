@@ -1,0 +1,76 @@
+
+/* Header */
+
+header {
+  background: #34495e ;/* Cor de fundo */
+  padding: 2vh; /* Espaçamento interno usando unidade relativa à altura da tela */
+  text-align: end; /* Centraliza o texto */
+  list-style-type: none; /* Remove os marcadores da lista */
+}
+
+ul li {
+    display: inline; /* Coloca os items em linha  */
+    margin-right: 20px; /* Espaçamento entre os itens */
+   
+}
+
+ul li a {
+    text-decoration: none;
+    color: #95a5a6; /* Cor dos links */
+    font-weight: bold;
+    
+}
+
+ul li a:hover {
+    color: #bdc3c7; /* Cor dos links ao passar o mouse */
+}
+
+/* Main */
+
+/* Reset simples para remover margens padrão do navegador */
+
+
+/* Estilo do cabeçalho */
+
+/* Estilo da lista de navegação */
+/* nav ul { */
+  /* display: flex; */ /* Deixa os itens lado a lado */
+  /* justify-content: center; */ /* Centraliza o menu */
+  /* gap: 2em; */ /* Espaço entre os itens */
+  /* list-style: none; */ /* Remove os marcadores da lista */
+  /* padding: 0; */ /* Remove o espaçamento interno da lista */
+/* } */
+
+/* Estrutura principal (conteúdo + barra lateral) */
+#principal {
+  display: flex; /* Cria layout em colunas */
+  gap: 2em; /* Espaçamento entre article e aside */
+  padding: 2em; /* Espaçamento interno */
+}
+
+/* Estilo do artigo */
+article {
+  flex: 3; /* Ocupa mais espaço (3 partes) */
+  font-size: 1.2em; /* Aumenta um pouco a fonte */
+}
+
+/* Estilo da barra lateral */
+aside {
+  flex: 1; /* Ocupa menos espaço (1 parte) */
+  background: #f4f4f4; /* Cor de fundo clara */
+  padding: 1em; /* Espaçamento interno */
+}
+
+/* Estilo do rodapé */
+footer {
+  background: #333; /* Fundo escuro */
+  color: white; /* Texto branco */
+  text-align: center; /* Centraliza o conteúdo */
+  padding: 1em; /* Espaçamento interno */
+}
+
+/* Classe destaque para personalizar trechos específicos */
+.destaque {
+  color: darkred; /* Cor do texto em vermelho escuro */
+  font-weight: bold; /* Texto em negrito */
+}
