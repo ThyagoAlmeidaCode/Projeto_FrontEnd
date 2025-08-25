@@ -48,11 +48,19 @@ ul li a:hover {
   /* padding: 0; */ /* Remove o espaçamento interno da lista */
 /* } */
 
+/* Estilo do corpo principal  adcionar depois */
+main {
+  padding: 2em; /* Espaçamento interno */
+  width: 100%; /* Largura total */
+  height: 90vh; /* Altura total da viewport */
+  
+}
+
 /* Estrutura principal (conteúdo + barra lateral) */
 #principal {
   display: flex; /* Cria layout em colunas */
   gap: 2em; /* Espaçamento entre article e aside */
-  padding: 2em; /* Espaçamento interno */
+  /* padding: 2em; */ /* Espaçamento interno */
 }
 
 /* Estilo do artigo */
