@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café & Code - Tutorial de Responsividade</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- ETAPA 1: ESTRUTURA HTML BÁSICA -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-mug-hot"></i>
+                <span>Café & Code</span>
+            </div>
+            
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#features">Recursos</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ETAPA 2: SEÇÃO HERO -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Bem-vindo ao Café & Code</h1>
+            <p>O lugar perfeito para desenvolvedores que amam café e código. Aprenda conosco como criar sites responsivos que se adaptam a qualquer dispositivo.</p>
+            <a href="#features" class="btn">Descubra Mais</a>
+        </div>
+    </section>
+
+    <!-- ETAPA 3: SEÇÃO DE RECURSOS -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Nossos Recursos</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Desenvolvimento Responsivo</h3>
+                    <p>Aprenda a criar sites que se adaptam perfeitamente a todos os dispositivos, desde smartphones até desktops.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Design Mobile-First</h3>
+                    <p>Abordagem que prioriza a experiência mobile antes de expandir para telas maiores, garantindo melhor performance.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>UI/UX Moderno</h3>
+                    <p>Interfaces elegantes e intuitivas com foco na experiência do usuário e acessibilidade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ETAPA 4: SEÇÃO SOBRE -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">Sobre Nós</h2>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p>O Café & Code nasceu da paixão por desenvolvimento web e, é claro, por um bom café. Nossa missão é ensinar desenvolvedores a criar experiências web incríveis que funcionem perfeitamente em qualquer dispositivo.</p>
+                    <p>Através de tutoriais práticos e dicas valiosas, ajudamos você a dominar as técnicas de responsividade e criar projetos que se destacam pela qualidade e adaptabilidade.</p>
+                    <p>Junte-se a nós nessa jornada de aprendizado, onde cada linha de código é escrita com dedicação e cada xícara de café é apreciada com entusiasmo!</p>
+                </div>
+                
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1460467820054-c87ab43e9b59?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ambiente de trabalho com café e computador">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ETAPA 5: RODAPÉ -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Entre em Contato</h3>
+                    <p>Email: contato@cafecode.com</p>
+                    <p>Telefone: (11) 99999-9999</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Nos Siga</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Localização</h3>
+                    <p>Rua do Código, 123</p>
+                    <p>São Paulo, Brasil</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Café & Code. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript para o menu mobile
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,341 @@
+/* ETAPA 1: RESET E ESTILOS BASE */
+* {
+    margin: 0;                /* Remove a margem padrão de todos os elementos */
+    padding: 0;               /* Remove o espaçamento interno padrão de todos os elementos */
+    box-sizing: border-box;   /* Inclui bordas e paddings no cálculo do tamanho total do elemento */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  /* Define a fonte padrão do site */
+    line-height: 1.6;                                            /* Aumenta o espaçamento entre linhas para facilitar a leitura */
+    color: #333;                                                 /* Cor padrão do texto (cinza escuro) */
+    background-color: #f9f9f9;                                   /* Cor de fundo clara para o site */
+}
+
+img {
+    max-width: 100%;   /* Faz com que as imagens nunca ultrapassem a largura do elemento pai */
+    height: auto;      /* Mantém a proporção correta da imagem */
+}
+
+a {
+    text-decoration: none;  /* Remove o sublinhado dos links */
+    color: #4a2c2a;         /* Define a cor marrom para os links */
+}
+
+.container {
+    width: 90%;             /* Define a largura do container como 90% da tela */
+    max-width: 1200px;      /* Mas nunca passa de 1200px */
+    margin: 0 auto;         /* Centraliza o container horizontalmente */
+    padding: 20px;          /* Espaçamento interno nas laterais */
+}
+
+/* ETAPA 2: CABEÇALHO */
+header {
+    background: linear-gradient(to right, #4a2c2a, #7c4d3f);  /* Fundo em degradê do cabeçalho */
+    color: white;                                             /* Texto branco */
+    padding: 20px 0;                                          /* Espaço interno em cima e embaixo */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);                /* Sombra abaixo do cabeçalho */
+}
+
+.header-content {
+    display: flex;                        /* Usa flexbox para alinhar itens */
+    justify-content: space-between;       /* Espaça os elementos para os lados */
+    align-items: center;                  /* Centraliza verticalmente */
+}
+
+.logo {
+    font-size: 1.8rem;     /* Tamanho grande da logo (texto) */
+    font-weight: bold;     /* Deixa o texto em negrito */
+    display: flex;         /* Alinha ícone e texto lado a lado */
+    align-items: center;   /* Centraliza verticalmente */
+}
+
+.logo i {
+    margin-right: 10px;   /* Espaço entre o ícone e o texto */
+    color: #c89f94;       /* Cor diferenciada para o ícone */
+}
+
+/* ETAPA 3: MENU DE NAVEGAÇÃO */
+nav ul {
+    display: flex;        /* Organiza os itens do menu lado a lado */
+    list-style: none;     /* Remove as bolinhas da lista */
+}
+
+nav li {
+    margin-left: 25px;    /* Espaço entre os itens do menu */
+}
+
+nav a {
+    color: white;               /* Links brancos no menu */
+    font-weight: 500;           /* Peso médio da fonte */
+    padding: 5px 10px;          /* Espaço interno para melhor clique */
+    border-radius: 4px;         /* Bordas levemente arredondadas */
+    transition: background 0.3s; /* Animação suave ao passar o mouse */
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.1); /* Fundo transparente ao passar o mouse */
+}
+
+.menu-toggle {
+    display: none;      /* Botão escondido no desktop */
+    font-size: 1.5rem;  /* Tamanho maior do ícone (hambúrguer) */
+    background: none;   /* Sem fundo */
+    border: none;       /* Sem borda */
+    color: white;       /* Ícone branco */
+    cursor: pointer;    /* Mostra mãozinha ao passar o mouse */
+}
+
+/* ETAPA 4: SEÇÃO HERO */
+.hero {
+    background: url('...') no-repeat center center/cover; /* Imagem de fundo centralizada e cobrindo toda a área */
+    color: white;             /* Texto branco */
+    text-align: center;       /* Centraliza todo o texto */
+    padding: 100px 20px;      /* Espaçamento interno grande */
+    position: relative;       /* Necessário para posicionar a camada escura */
+}
+
+.hero::before {
+    content: '';                        /* Cria um pseudo-elemento vazio */
+    position: absolute;                 /* Posiciona por cima do hero */
+    top: 0; left: 0; width: 100%; height: 100%; /* Ocupa toda a área */
+    background: rgba(0, 0, 0, 0.6);     /* Camada escura transparente */
+}
+
+.hero-content {
+    position: relative;  /* Para aparecer acima da camada escura */
+    z-index: 1;          /* Garante que o texto fique visível */
+    max-width: 800px;    /* Limita a largura do conteúdo */
+    margin: 0 auto;      /* Centraliza horizontalmente */
+}
+
+.hero h1 {
+    font-size: 2.5rem;   /* Título grande */
+    margin-bottom: 20px; /* Espaço abaixo do título */
+}
+
+.hero p {
+    font-size: 1.2rem;   /* Texto maior que o padrão */
+    margin-bottom: 30px; /* Espaço abaixo do parágrafo */
+}
+
+.btn {
+    display: inline-block;       /* Comportamento de botão */
+    background: #c89f94;         /* Cor de fundo */
+    color: white;                /* Texto branco */
+    padding: 12px 25px;          /* Espaçamento interno */
+    border-radius: 30px;         /* Bordas arredondadas estilo "pill" */
+    font-weight: bold;           /* Texto em negrito */
+    transition: all 0.3s;        /* Animação suave */
+}
+
+.btn:hover {
+    background: #b3877a;                  /* Muda cor ao passar o mouse */
+    transform: translateY(-3px);          /* Sobe um pouquinho */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Cria sombra */
+}
+
+/* ETAPA 5: SEÇÃO DE RECURSOS */
+.features {
+    padding: 80px 0;        /* Espaçamento grande */
+    background: white;      /* Fundo branco */
+}
+
+.section-title {
+    text-align: center;     /* Centraliza o título */
+    margin-bottom: 50px;    /* Espaço abaixo */
+    color: #4a2c2a;         /* Cor marrom */
+    position: relative;     /* Para aplicar linha decorativa */
+}
+
+.section-title::after {
+    content: '';                   /* Cria a linha decorativa */
+    display: block;
+    width: 80px; height: 4px;      /* Tamanho da linha */
+    background: #c89f94;           /* Cor da linha */
+    margin: 15px auto;             /* Centraliza a linha */
+    border-radius: 2px;            /* Bordas arredondadas */
+}
+
+.features-grid {
+    display: grid;                               /* Layout em grade */
+    grid-template-columns: repeat(3, 1fr);       /* 3 colunas iguais */
+    gap: 30px;                                   /* Espaço entre os itens */
+}
+
+.feature-card {
+    background: #fff;                  /* Fundo branco */
+    padding: 30px;                     /* Espaçamento interno */
+    border-radius: 10px;               /* Bordas arredondadas */
+    text-align: center;                /* Texto centralizado */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1); /* Sombra leve */
+    transition: transform 0.3s;        /* Animação suave */
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);  /* Sobe levemente ao passar o mouse */
+}
+
+.feature-card i {
+    font-size: 3rem;     /* Ícones grandes */
+    color: #7c4d3f;      /* Cor marrom */
+    margin-bottom: 20px; /* Espaço abaixo */
+}
+
+.feature-card h3 {
+    margin-bottom: 15px; /* Espaço abaixo do título */
+    color: #4a2c2a;      /* Cor marrom */
+}
+
+/* ETAPA 6: SEÇÃO SOBRE */
+.about {
+    padding: 80px 0;        /* Espaçamento interno */
+    background: #f2e9e6;    /* Fundo bege claro */
+}
+
+.about-content {
+    display: flex;          /* Layout em colunas */
+    align-items: center;    /* Alinha verticalmente */
+    gap: 50px;              /* Espaço entre imagem e texto */
+}
+
+.about-text {
+    flex: 1;                /* O texto ocupa metade da tela */
+}
+
+.about-image {
+    flex: 1;                /* A imagem ocupa metade da tela */
+    border-radius: 10px;    /* Bordas arredondadas */
+    overflow: hidden;       /* Esconde partes que ultrapassem a borda */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2); /* Sombra */
+}
+
+/* ETAPA 7: RODAPÉ */
+footer {
+    background: #4a2c2a;    /* Fundo marrom escuro */
+    color: white;           /* Texto branco */
+    padding: 50px 0 20px;   /* Espaço interno */
+    text-align: center;     /* Centraliza o texto */
+}
+
+.footer-content {
+    display: flex;            /* Layout em colunas */
+    justify-content: space-around; /* Espaça igualmente */
+    flex-wrap: wrap;          /* Quebra linha se faltar espaço */
+    margin-bottom: 30px;      /* Espaço abaixo */
+}
+
+.footer-section {
+    flex: 1;                /* Cada seção ocupa espaço igual */
+    min-width: 250px;       /* Não fica muito pequeno */
+    margin-bottom: 30px;    /* Espaço entre seções */
+}
+
+.footer-section h3 {
+    margin-bottom: 20px;   /* Espaço abaixo do título */
+    color: #c89f94;        /* Cor de destaque */
+}
+
+.social-icons a {
+    color: white;              /* Ícones brancos */
+    font-size: 1.5rem;         /* Ícones grandes */
+    margin: 0 10px;            /* Espaço entre eles */
+    transition: color 0.3s;    /* Animação suave */
+}
+
+.social-icons a:hover {
+    color: #c89f94;  /* Troca cor ao passar o mouse */
+}
+
+.copyright {
+    padding-top: 20px;                          /* Espaço em cima */
+    border-top: 1px solid rgba(255,255,255,0.1); /* Linha sutil */
+}
+
+/* ETAPA 8: MEDIA QUERIES - RESPONSIVIDADE */
+
+/* Tablets */
+@media (max-width: 992px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas no tablet */
+    }
+
+    .about-content {
+        flex-direction: column; /* Empilha texto e imagem */
+    }
+
+    .about-image, .about-text {
+        flex: none;
+        width: 100%; /* Cada um ocupa 100% */
+    }
+}
+
+/* Tablets Pequenos */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem; /* Título menor */
+    }
+
+    .hero p {
+        font-size: 1rem; /* Texto menor */
+    }
+
+    nav ul {
+        display: none;        /* Esconde o menu */
+        flex-direction: column;
+        position: absolute;
+        top: 70px; left: 0; width: 100%;
+        background: #7c4d3f;
+        padding: 20px;
+        text-align: center;
+        z-index: 100;         /* Fica sobreposto */
+    }
+
+    nav ul.active {
+        display: flex; /* Mostra o menu ao clicar no toggle */
+    }
+
+    nav li {
+        margin: 15px 0; /* Espaço entre os itens */
+    }
+
+    .menu-toggle {
+        display: block; /* Mostra o botão hamburguer */
+    }
+}
+
+/* Celulares */
+@media (max-width: 576px) {
+    .features-grid {
+        grid-template-columns: 1fr; /* Só 1 coluna no celular */
+    }
+
+    .hero {
+        padding: 60px 20px; /* Menos espaço interno */
+    }
+
+    .footer-content {
+        flex-direction: column; /* Empilha seções */
+    }
+
+    .feature-card {
+        padding: 20px; /* Menos espaçamento interno */
+    }
+}
+
+/* Modo escuro para preferência do sistema */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1a1a1a; /* Fundo escuro */
+        color: #f0f0f0;           /* Texto claro */
+    }
+
+    .feature-card, .about {
+        background: #2a2a2a;  /* Blocos mais escuros */
+        color: #f0f0f0;       /* Texto claro */
+    }
+
+    .feature-card h3, .section-title {
+        color: #c89f94;       /* Mantém cor de destaque */
+    }
+}
