@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breakpoints e Flexbox - Explicação Detalhada</title>
+    <style>
+        /* ESTILOS GERAIS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin: 25px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            color: #2980b9;
+            margin: 20px 0 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            border-radius: 10px;
+            background: #f8f9fa;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .breakpoint-demo {
+            height: 100px;
+            background: #3498db;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            margin: 20px 0;
+        }
+        
+        .flex-container {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+            padding: 15px;
+            background: #e8f4fc;
+            border-radius: 8px;
+        }
+        
+        .flex-item {
+            padding: 20px;
+            background: #3498db;
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+            flex-basis: 100px; /* Valor padrão */
+        }
+        
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+            padding: 20px;
+            background: #e8f4fc;
+            border-radius: 8px;
+        }
+        
+        .control-group {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        input[type="range"] {
+            width: 100%;
+            margin: 10px 0;
+        }
+        
+        .value-display {
+            font-weight: bold;
+            color: #2980b9;
+        }
+        
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        
+        .info-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #2c3e50;
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        /* MEDIA QUERIES - BREAKPOINTS DEMONSTRADOS */
+        @media (max-width: 575.98px) {
+            .breakpoint-demo {
+                background: #e74c3c;
+                content: "Mobile Pequeno (xs): < 576px";
+            }
+        }
+        
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            .breakpoint-demo {
+                background: #9b59b6;
+                content: "Mobile (sm): 576px - 767px";
+            }
+        }
+        
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            .breakpoint-demo {
+                background: #f39c12;
+                content: "Tablet (md): 768px - 991px";
+            }
+        }
+        
+        @media (min-width: 992px) and (max-width: 1199.98px) {
+            .breakpoint-demo {
+                background: #27ae60;
+                content: "Desktop (lg): 992px - 1199px";
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .breakpoint-demo {
+                background: #2980b9;
+                content: "Desktop Grande (xl): ≥ 1200px";
+            }
+        }
+        
+        /* Ajustes de responsividade para a página */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Breakpoints e Propriedades Flexbox</h1>
+            <p>Explicação detalhada com exemplos visuais</p>
+        </header>
+        
+        <div class="content">
+            <div class="section">
+                <h2>Pontos de Quebra (Breakpoints) Comuns</h2>
+                <p>Breakpoints são valores de largura de tela onde o layout do site se adapta para proporcionar uma melhor experiência do usuário em diferentes dispositivos.</p>
+                
+                <div class="breakpoint-demo">
+                    Redimensione a janela para ver o breakpoint atual
+                </div>
+                
+                <div class="info-box">
+                    <p><strong>Dica:</strong> Os breakpoints devem ser baseados no conteúdo, não necessariamente em dispositivos específicos. Use esses valores como referência, mas adapte conforme a necessidade do seu layout.</p>
+                </div>
+                
+                <h3>Breakpoints mais utilizados:</h3>
+                
+                <div class="code-block">
+                    /* Dispositivos muito pequenos (celulares em portrait) */<br>
+                    @media (max-width: 575.98px) { ... }<br><br>
+                    
+                    /* Dispositivos pequenos (celulares em landscape) */<br>
+                    @media (min-width: 576px) and (max-width: 767.98px) { ... }<br><br>
+                    
+                    /* Dispositivos médios (tablets) */<br>
+                    @media (min-width: 768px) and (max-width: 991.98px) { ... }<br><br>
+                    
+                    /* Dispositivos grandes (desktops) */<br>
+                    @media (min-width: 992px) and (max-width: 1199.98px) { ... }<br><br>
+                    
+                    /* Dispositivos extra grandes (desktops grandes) */<br>
+                    @media (min-width: 1200px) { ... }
+                </div>
+                
+                <h3>Estratégias de desenvolvimento:</h3>
+                <p><strong>Mobile First:</strong> Desenvolva primeiro para dispositivos móveis e use <code>min-width</code> para adicionar estilos para telas maiores.</p>
+                <p><strong>Desktop First:</strong> Desenvolva primeiro para desktop e use <code>max-width</code> para adaptar para telas menores.</p>
+            </div>
+            
+            <div class="section">
+                <h2>Propriedades Flexbox: flex-grow, flex-shrink e flex-basis</h2>
+                <p>O Flexbox é um modelo de layout unidimensional que facilita o design de estruturas responsivas. As três propriedades a seguir controlam como os itens flexíveis se comportam dentro de um container.</p>
+                
+                <h3>flex-basis</h3>
+                <p>Define o tamanho inicial de um item flexível antes que o espaço restante seja distribuído. Pode ser um valor em px, %, ou auto.</p>
+                
+                <h3>flex-grow</h3>
+                <p>Define a capacidade de um item flexível crescer se necessário. É um número sem unidades que serve como proporção. O valor padrão é 0.</p>
+                
+                <h3>flex-shrink</h3>
+                <p>Define a capacidade de um item flexível encolher se necessário. Também é um número sem unidades que serve como proporção. O valor padrão é 1.</p>
+                
+                <div class="info-box">
+                    <p><strong>Nota:</strong> A propriedade shorthand <code>flex</code> aceita três valores: <code>flex-grow</code>, <code>flex-shrink</code> e <code>flex-basis</code>. Exemplo: <code>flex: 1 0 100px;</code></p>
+                </div>
+                
+                <h3>Demonstração Interativa</h3>
+                <p>Ajuste os controles para ver como as propriedades flexbox afetam o layout:</p>
+                
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="grow">flex-grow: <span class="value-display" id="grow-value">0</span></label>
+                        <input type="range" id="grow" min="0" max="5" value="0">
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="shrink">flex-shrink: <span class="value-display" id="shrink-value">1</span></label>
+                        <input type="range" id="shrink" min="0" max="5" value="1">
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="basis">flex-basis: <span class="value-display" id="basis-value">100</span>px</label>
+                        <input type="range" id="basis" min="50" max="300" value="100">
+                    </div>
+                </div>
+                
+                <div class="flex-container">
+                    <div class="flex-item" id="flex-item-1">Item 1</div>
+                    <div class="flex-item" id="flex-item-2">Item 2</div>
+                    <div class="flex-item" id="flex-item-3">Item 3</div>
+                </div>
+                
+                <div class="code-block">
+                    .flex-item {<br>
+                    &nbsp;&nbsp;flex-grow: <span id="code-grow">0</span>;<br>
+                    &nbsp;&nbsp;flex-shrink: <span id="code-shrink">1</span>;<br>
+                    &nbsp;&nbsp;flex-basis: <span id="code-basis">100</span>px;<br>
+                    }
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Explicação detalhada sobre Breakpoints e Propriedades Flexbox</p>
+            <p>© 2023 - Tutorial de Responsividade</p>
+        </footer>
+    </div>
+
+    <script>
+        // Atualiza os valores dos sliders e aplica as propriedades flexbox
+        document.addEventListener('DOMContentLoaded', function() {
+            const growSlider = document.getElementById('grow');
+            const shrinkSlider = document.getElementById('shrink');
+            const basisSlider = document.getElementById('basis');
+            
+            const growValue = document.getElementById('grow-value');
+            const shrinkValue = document.getElementById('shrink-value');
+            const basisValue = document.getElementById('basis-value');
+            
+            const codeGrow = document.getElementById('code-grow');
+            const codeShrink = document.getElementById('code-shrink');
+            const codeBasis = document.getElementById('code-basis');
+            
+            const flexItems = [
+                document.getElementById('flex-item-1'),
+                document.getElementById('flex-item-2'),
+                document.getElementById('flex-item-3')
+            ];
+            
+            function updateFlexProperties() {
+                const grow = growSlider.value;
+                const shrink = shrinkSlider.value;
+                const basis = basisSlider.value;
+                
+                // Atualiza os valores exibidos
+                growValue.textContent = grow;
+                shrinkValue.textContent = shrink;
+                basisValue.textContent = basis;
+                
+                // Atualiza o código exibido
+                codeGrow.textContent = grow;
+                codeShrink.textContent = shrink;
+                codeBasis.textContent = basis;
+                
+                // Aplica os valores aos itens flex
+                flexItems.forEach(item => {
+                    item.style.flexGrow = grow;
+                    item.style.flexShrink = shrink;
+                    item.style.flexBasis = `${basis}px`;
+                });
+            }
+            
+            // Adiciona event listeners aos sliders
+            growSlider.addEventListener('input', updateFlexProperties);
+            shrinkSlider.addEventListener('input', updateFlexProperties);
+            basisSlider.addEventListener('input', updateFlexProperties);
+            
+            // Inicializa os valores
+            updateFlexProperties();
+        });
+    </script>
+</body>
+</html>
