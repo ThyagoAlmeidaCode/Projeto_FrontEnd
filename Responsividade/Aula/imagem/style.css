@@ -1,0 +1,69 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos básicos para dispositivos móveis */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+header, footer {
+    margin: 20px 0;
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Media queries para telas maiores */
+@media (min-width: 600px) {
+    .gallery {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .gallery img {
+        width: 100%;
+    }
+}
+
+@media (min-width: 900px) {
+    h1 {
+        font-size: 32px;
+    }
+
+    .gallery {
+        max-width: 800px;
+        gap: 30px;
+    }
+
+    .gallery img {
+        width: 100%;
+    }
+}

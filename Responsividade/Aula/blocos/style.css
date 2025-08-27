@@ -1,0 +1,54 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*Determina como os elemntos serao calculados*/
+    font-family: Arial, sans-serif;
+}
+
+header, footer {    
+    text-align: center;
+    background-color: #41576d;
+    color: #fff;
+}
+
+.container{
+    display: flex;
+    flex-direction: row; /*Direção dos itens*/
+    justify-content: center; /*Alinhamento dos itens linha*/    
+    width: 100vw; /*Ocupa toda a largura*/
+    height: 100vh;   /*Ocupa toda a altura*/
+    background-color: #2c3e50;
+}
+
+.container div{    
+    /* display: inline; */
+    float: left;
+    width: 100px ;
+    height: 100px;    
+    border: 2px solid #2a9ba3;
+    background-color: #95a5a6;
+}
+
+/* Media queries para telas maiores */
+@media (min-width: 600px){
+    header h2{
+        font-size: 40px;
+    }
+    .container div{
+        width: 30vw;
+        height: 30vh;
+        
+    }
+}
+
+@media (min-width: 900px){
+    header h2{
+        font-size: 70px;
+    }
+    .container div{
+        width: 50vw;
+        height: 50vh;
+        
+    }
+}
