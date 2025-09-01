@@ -1,15 +1,60 @@
-
 /* O que é Flexbox?
 Flexbox é um módulo do CSS que nos permite organizar elementos em uma página de maneira eficiente, mesmo quando seus tamanhos são desconhecidos ou dinâmicos. */
 
 /* Etapa 01 */
-.container{
+.container {
     display: flex;
+
+    /* justify-content */
+
+    /* justify-content: flex-start;  */   /* padrão: à esquerda */
+    justify-content: flex-start;    /* à direita */
+    /* justify-content: center;   */  /* centralizado */
+    /* justify-content: space-between;  */   /* espaço entre os itens */
+    /* justify-content: space-around;  */   /* espaço ao redor dos itens */
+    /* justify-content: space-evenly;  */   /* espaço igual entre os itens */
+
+    /* align-items */
+    /* align-items: stretch;  */   /* padrão: estica para preencher */
+    align-items: flex-end; /* alinha no topo */
+    /* align-items: flex-end;  */  /* alinha na base */
+    /* align-items: center;  */    /* centraliza verticalmente */
+    /* align-items: baseline; */   /* alinha pela base do texto */
+
+    /* flex-direction */
+    flex-direction: row;        /* padrão: horizontal */
+    /* flex-direction: row-reverse; *//* horizontal invertido */
+    /* flex-direction: column;  */    /* vertical */
+    /* flex-direction: column-reverse; */ /* vertical invertido */
+
+    /* flex-wrap - Controla se os itens devem quebrar para a linha seguinte:*/
+    /* flex-wrap: nowrap; */ /* padrão: não quebra linha */
+    /* flex-wrap: wrap;   */ /* quebra linha quando necessário */
+    /* flex-wrap: wrap-reverse;  *//* quebra linha na direção inversa */
+
+    gap: 10px;
 }
 
 
-.item{
+/* flex-grow
+Define a capacidade de um item crescer se necessário:
+ */
+
+.item {
     width: 100px;
     height: 100px;
     background-color: brown;
+
+    /* flex-grow - Define a capacidade de um item crescer se necessário:*/
+    /* flex-grow: 0; */ /* padrão: não cresce */
+    /* flex-grow:1;  */ /* cresce para preencher espaço disponível */
+
+    /* flex-shrink - Define a capacidade de um item reduzir se necessário: */
+    flex-shrink: 0; /* padrão: reduz se necessário */
+    /* flex-shrink: 0;  *//* não reduz */
+
+    /* flex-basis - Define o tamanho inicial de um item antes do espaço ser distribuído: */
+    /* flex-basis: auto; */ /* padrão: tamanho base do conteúdo */
+    flex-basis: 500px; /* tamanho fixo */
+    /* flex-basis: 50%;  */  /* porcentagem do container */
 }

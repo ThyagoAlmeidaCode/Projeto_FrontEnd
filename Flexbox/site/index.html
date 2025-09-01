@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <body>
+    <!-- Link de pular navegação para acessibilidade -->
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+    
+    <header role="banner">
+        <div class="container header-content">
+            <div class="logo" role="heading" aria-level="1">
+                Meu Site Flexbox
+            </div>
+            <nav role="navigation" aria-label="Menu principal">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main id="main-content" role="main" tabindex="-1">
+        <section class="hero" id="home">
+            <div class="container">
+                <h2>Bem-vindo ao Nosso Site</h2>
+                <p>Um exemplo de layout moderno usando Flexbox CSS</p>
+            </div>
+        </section>
+        
+        <section class="features" id="servicos">
+            <div class="container">
+                <h2>Nossos Serviços</h2>
+                <div class="features-container">
+                    <article class="feature" role="article">
+                        <h3>Web Design</h3>
+                        <p>Criamos designs modernos e responsivos que se adaptam a qualquer dispositivo.</p>
+                    </article>
+                    <article class="feature" role="article">
+                        <h3>Desenvolvimento Frontend</h3>
+                        <p>Desenvolvemos interfaces interativas e acessíveis com as melhores práticas.</p>
+                    </article>
+                    <article class="feature" role="article">
+                        <h3>Otimização SEO</h3>
+                        <p>Otimizamos seu site para melhor posicionamento nos mecanismos de busca.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        
+        <section class="gallery" id="sobre">
+            <div class="container">
+                <h2>Nossos Trabalhos</h2>
+                <div class="gallery-container">
+                    <div class="gallery-item" role="img" aria-label="Projeto 1">Projeto 1</div>
+                    <div class="gallery-item" role="img" aria-label="Projeto 2">Projeto 2</div>
+                    <div class="gallery-item" role="img" aria-label="Projeto 3">Projeto 3</div>
+                    <div class="gallery-item" role="img" aria-label="Projeto 4">Projeto 4</div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer role="contentinfo">
+        <div class="container footer-content">
+            <p>&copy; 2023 Meu Site Flexbox. Todos os direitos reservados.</p>
+            <address>
+                Contato: <a href="mailto:contato@meusite.com">contato@meusite.com</a>
+            </address>
+        </div>
+    </footer>
+</body>
+</html>
