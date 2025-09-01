@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <a href="#main" class="skip-link">Pular para o conteúdo principal</a>
+    
+    <div class="container">
+        <header>
+            <h1>Meu Site Acessível</h1>
+        </header>
+
+        <nav aria-label="Navegação principal">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Serviços</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+
+        <main id="main" tabindex="-1">
+            <article class="card">
+                <h2>Bem-vindo ao nosso site!</h2>
+                <p>Este é um exemplo de layout usando CSS Grid, com foco em acessibilidade e boas práticas.</p>
+                <img src="https://via.placeholder.com/800x400" alt="Imagem de exemplo com texto alternativo descritivo">
+            </article>
+
+            <section class="card" aria-labelledby="servicos-title">
+                <h2 id="servicos-title">Nossos Serviços</h2>
+                <p>Oferecemos uma variedade de serviços para atender às suas necessidades.</p>
+            </section>
+        </main>
+
+        <aside aria-labelledby="aside-title">
+            <h2 id="aside-title">Informações Adicionais</h2>
+            <p>Conteúdo complementar ou links relacionados.</p>
+        </aside>
+
+        <footer>
+            <p>&copy; 2023 Meu Site Acessível. Todos os direitos reservados.</p>
+            <p>Desenvolvido com foco em acessibilidade.</p>
+        </footer>
+    </div>
+</body>
+</html>

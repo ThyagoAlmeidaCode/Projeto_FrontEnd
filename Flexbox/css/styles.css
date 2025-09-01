@@ -1,0 +1,15 @@
+
+/* O que é Flexbox?
+Flexbox é um módulo do CSS que nos permite organizar elementos em uma página de maneira eficiente, mesmo quando seus tamanhos são desconhecidos ou dinâmicos. */
+
+/* Etapa 01 */
+.container{
+    display: flex;
+}
+
+
+.item{
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+}
