@@ -16,3 +16,8 @@ paragrafo.innerText = 'Este é um parágrafo de introdução.';
 paragrafo.style.color = 'blue';
 paragrafo.style.fontSize = '20px';
 
+let valor_um = prompt("Informe um valor");
+let valor_dois = prompt("Informe um valor");
+
+let soma = parseInt(valor_um) + parseInt(valor_dois);
+document.getElementById("soma").innerText = soma;
