@@ -23,4 +23,20 @@ console.log("Ola " + nome + sobrenome) ;
 let classificação = 25;
 console.log(typeof classificação);
 
+/* Operdaores */
+/*
+Operadores
+Operadores nos permitem manipular e comparar dados.
 
+Aritméticos: + (adição), - (subtração), * (multiplicação), / (divisão).
+
+De Comparação: == (igualdade de valor), === (igualdade de valor e tipo), != (diferente de valor), !== (diferente de valor e tipo).
+
+Lógicos: && (E), || (OU), ! (NÃO).
+
+
+ */
+
+let num1 = 20;
+let num2 = "20";
+console.log(num1 === num2);
