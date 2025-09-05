@@ -1,0 +1,44 @@
+/* Etapa 1: Introdução ao Flexbox */
+.container {
+  display: flex; /* Habilita o Flexbox no container */
+}
+
+/* Etapa 2: Entendendo as propriedades básicas */
+.linha {
+  flex-direction: row; /* Define a direção do layout como linha */
+  justify-content: flex-start; /* Justifica os elementos no eixo principal */
+  align-items: center; /* Justifica os elementos no eixo cruzado */
+}
+
+.coluna {
+  flex-direction: column; /* Define a direção do layout como coluna */
+  justify-content: center; /* Justifica os elementos no eixo principal */
+  align-items: center; /* Justifica os elementos no eixo cruzado */
+}
+
+/* Etapa 3: Trabalhando com elementos flexíveis */
+.item {
+ /*  flex-grow: 1; */ /* Define o fator de crescimento do elemento */
+/*   flex-shrink: 0; */ /* Define o fator de redução do elemento */
+  /* flex-basis: 200px;  *//* Define o tamanho inicial do elemento */
+  /* margin: 10px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc; */
+}
+
+/* Etapa 4: Trabalhando com elementos aninhados */
+.aninhado {
+ /*  flex-wrap: wrap; */ /* Define se os elementos devem ser envolvidos ou não */
+  /* flex-flow: row wrap; */ /* Define a direção e o envolvimento dos elementos */
+}
+
+/* .subitem {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 100px;
+  margin: 10px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+} */
