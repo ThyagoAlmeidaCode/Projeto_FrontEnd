@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercícios JS</title>
+</head>
+<body>
+    <h1>Exercícios de JavaScript</h1>
+
+    <!-- Exercício 1 -->
+    <h2>Exercício 1 - Maioridade</h2>
+    <input type="number" id="idade" placeholder="Digite sua idade">
+    <button id="btn1">Verificar</button>
+    <p id="res1"></p>
+
+    <!-- Exercício 2 -->
+    <h2>Exercício 2 - Notas</h2>
+    <input type="number" id="nota" placeholder="Digite a nota">
+    <button id="btn2">Verificar</button>
+    <p id="res2"></p>
+
+    <!-- Exercício 3 -->
+    <h2>Exercício 3 - Números de 1 a 10</h2>
+    <button id="btn3">Mostrar Números</button>
+    <p id="res3"></p>
+
+    <!-- Exercício 4 -->
+    <h2>Exercício 4 - Tabuada</h2>
+    <input type="number" id="numeroTabuada" placeholder="Digite um número">
+    <button id="btn4">Gerar Tabuada</button>
+    <pre id="res4"></pre>
+
+    <!-- Exercício 5 -->
+    <h2>Exercício 5 - Soma de Dois Números</h2>
+    <input type="number" id="num1" placeholder="Número 1">
+    <input type="number" id="num2" placeholder="Número 2">
+    <button onclick="somar()">Somar</button>
+    <p id="res5"></p>
+
+    <!-- Exercício 6 -->
+    <h2>Exercício 6 - Par ou Ímpar</h2>
+    <input type="number" id="numeroParImpar" placeholder="Digite um número">
+    <button onclick="verificarParImpar()">Verificar</button>
+    <p id="res6"></p>
+
+    <script>
+        // =======================
+        // Exercícios com decisão
+        // =======================
+
+        // Ex1 - Maioridade
+        document.getElementById("btn1").addEventListener("click", function() {
+            let idade = document.getElementById("idade").value;
+            if (idade >= 18) {
+                document.getElementById("res1").innerText = "Maior de idade";
+            } else {
+                document.getElementById("res1").innerText = "Menor de idade";
+            }
+        });
+
+        // Ex2 - Notas
+        document.getElementById("btn2").addEventListener("click", function() {
+            let nota = parseFloat(document.getElementById("nota").value);
+            if (nota < 5) {
+                document.getElementById("res2").innerText = "Reprovado";
+            } else if (nota < 7) {
+                document.getElementById("res2").innerText = "Recuperação";
+            } else {
+                document.getElementById("res2").innerText = "Aprovado";
+            }
+        });
+
+        // =======================
+        // Exercícios com repetição
+        // =======================
+
+        // Ex3 - Números de 1 a 10
+        document.getElementById("btn3").addEventListener("click", function() {
+            let numeros = "";
+            for (let i = 1; i <= 10; i++) {
+                numeros += i + " ";
+            }
+            document.getElementById("res3").innerText = numeros;
+        });
+
+        // Ex4 - Tabuada
+        document.getElementById("btn4").addEventListener("click", function() {
+            let n = parseInt(document.getElementById("numeroTabuada").value);
+            let tabuada = "";
+            for (let i = 1; i <= 10; i++) {
+                tabuada += n + " x " + i + " = " + (n * i) + "\n";
+            }
+            document.getElementById("res4").innerText = tabuada;
+        });
+
+        // =======================
+        // Exercícios com funções
+        // =======================
+
+        // Ex5 - Função soma
+        function somar() {
+            let n1 = parseFloat(document.getElementById("num1").value);
+            let n2 = parseFloat(document.getElementById("num2").value);
+            let soma = n1 + n2;
+            document.getElementById("res5").innerText = "Resultado: " + soma;
+        }
+
+        // Ex6 - Função par ou ímpar
+        function verificarParImpar() {
+            let n = parseInt(document.getElementById("numeroParImpar").value);
+            if (n % 2 === 0) {
+                document.getElementById("res6").innerText = "Par";
+            } else {
+                document.getElementById("res6").innerText = "Ímpar";
+            }
+        }
+    </script>
+</body>
+</html>

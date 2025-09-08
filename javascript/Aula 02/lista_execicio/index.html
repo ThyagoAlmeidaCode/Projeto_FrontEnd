@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios JavaScript para Iniciantes</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f8ff;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #4a6bff;
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: #4a6bff;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #4a6bff;
+        }
+        
+        h3 {
+            color: #4a6bff;
+            margin: 15px 0;
+        }
+        
+        .topic {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .exercise {
+            background-color: #f9faff;
+            border-left: 4px solid #4a6bff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .code-container {
+            background-color: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: 'Fira Code', monospace;
+        }
+        
+        .input-area {
+            margin: 15px 0;
+        }
+        
+        input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            max-width: 300px;
+            margin-right: 10px;
+        }
+        
+        button {
+            background-color: #4a6bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #3a5bef;
+        }
+        
+        .result {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #edf2ff;
+            border-radius: 8px;
+            min-height: 50px;
+        }
+        
+        .hint {
+            background-color: #fff9db;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            display: none;
+        }
+        
+        .show-hint {
+            background-color: transparent;
+            color: #4a6bff;
+            border: none;
+            padding: 5px;
+            font-size: 0.9rem;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .input-area {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            input {
+                margin-bottom: 10px;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Exercícios de JavaScript</h1>
+            <p>Estruturas de decisão, repetição e funções para iniciantes</p>
+        </header>
+        
+        <div class="topic">
+            <h2>Estruturas de Decisão</h2>
+            
+            <div class="exercise">
+                <h3>Exercício 1: Verificador de Idade (Simples)</h3>
+                <p>Crie um programa que verifica se uma pessoa é maior de idade.</p>
+                <div class="input-area">
+                    <input type="number" id="ageInput" placeholder="Digite sua idade">
+                    <button onclick="checkAge()">Verificar</button>
+                </div>
+                <div class="result" id="ageResult"></div>
+                <button class="show-hint" onclick="toggleHint('hint1')">Mostrar Dica</button>
+                <div class="hint" id="hint1">
+                    Use uma estrutura if/else para verificar se a idade é maior ou igual a 18.
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <h3>Exercício 2: Calculadora de IMC (Médio)</h3>
+                <p>Crie um programa que calcula o IMC e classifica o resultado.</p>
+                <div class="input-area">
+                    <input type="number" id="weightInput" placeholder="Peso (kg)">
+                    <input type="number" id="heightInput" placeholder="Altura (m)">
+                    <button onclick="calculateBMI()">Calcular IMC</button>
+                </div>
+                <div class="result" id="bmiResult"></div>
+                <button class="show-hint" onclick="toggleHint('hint2')">Mostrar Dica</button>
+                <div class="hint" id="hint2">
+                    IMC = peso / (altura * altura). Use if/else if/else para classificar o resultado.
+                </div>
+            </div>
+        </div>
+        
+        <div class="topic">
+            <h2>Estruturas de Repetição</h2>
+            
+            <div class="exercise">
+                <h3>Exercício 3: Contador (Simples)</h3>
+                <p>Crie um programa que conta de um número até outro.</p>
+                <div class="input-area">
+                    <input type="number" id="startInput" placeholder="Início" value="1">
+                    <input type="number" id="endInput" placeholder="Fim" value="10">
+                    <button onclick="countNumbers()">Contar</button>
+                </div>
+                <div class="result" id="countResult"></div>
+                <button class="show-hint" onclick="toggleHint('hint3')">Mostrar Dica</button>
+                <div class="hint" id="hint3">
+                    Use um loop for para iterar do número inicial até o número final.
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <h3>Exercício 4: Tabuada (Médio)</h3>
+                <p>Crie um programa que gera a tabuada de um número.</p>
+                <div class="input-area">
+                    <input type="number" id="numberInput" placeholder="Digite um número" value="5">
+                    <button onclick="generateTable()">Gerar Tabuada</button>
+                </div>
+                <div class="result" id="tableResult"></div>
+                <button class="show-hint" onclick="toggleHint('hint4')">Mostrar Dica</button>
+                <div class="hint" id="hint4">
+                    Use um loop for de 1 a 10 e multiplique cada número pelo valor informado.
+                </div>
+            </div>
+        </div>
+        
+        <div class="topic">
+            <h2>Funções</h2>
+            
+            <div class="exercise">
+                <h3>Exercício 5: Calculadora Simples (Simples)</h3>
+                <p>Crie funções para as quatro operações matemáticas básicas.</p>
+                <div class="input-area">
+                    <input type="number" id="num1" placeholder="Número 1" value="10">
+                    <input type="number" id="num2" placeholder="Número 2" value="5">
+                    <div>
+                        <button onclick="calculate('add')">Somar</button>
+                        <button onclick="calculate('subtract')">Subtrair</button>
+                        <button onclick="calculate('multiply')">Multiplicar</button>
+                        <button onclick="calculate('divide')">Dividir</button>
+                    </div>
+                </div>
+                <div class="result" id="calcResult"></div>
+                <button class="show-hint" onclick="toggleHint('hint5')">Mostrar Dica</button>
+                <div class="hint" id="hint5">
+                    Crie funções separadas para cada operação e chame a função apropriada baseada no botão clicado.
+                </div>
+            </div>
+            
+            <div class="exercise">
+                <h3>Exercício 6: Validador de E-mail (Médio)</h3>
+                <p>Crie uma função que valida um endereço de e-mail.</p>
+                <div class="input-area">
+                    <input type="text" id="emailInput" placeholder="Digite um e-mail">
+                    <button onclick="validateEmail()">Validar E-mail</button>
+                </div>
+                <div class="result" id="emailResult"></div>
+                <button class="show-hint" onclick="toggleHint('hint6')">Mostrar Dica</button>
+                <div class="hint" id="hint6">
+                    Verifique se o e-mail contém "@" e "." e se estes não estão no início ou fim.
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Exercícios de JavaScript para Iniciantes - Desenvolvido para praticar conceitos básicos</p>
+        </footer>
+    </div>
+
+    <script>
+        // Função para mostrar/ocultar dicas
+        function toggleHint(hintId) {
+            const hint = document.getElementById(hintId);
+            hint.style.display = hint.style.display === 'block' ? 'none' : 'block';
+        }
+        
+        // Exercício 1: Verificador de Idade
+        function checkAge() {
+            const age = parseInt(document.getElementById('ageInput').value);
+            const resultElement = document.getElementById('ageResult');
+            
+            if (isNaN(age)) {
+                resultElement.innerHTML = 'Por favor, digite uma idade válida.';
+                return;
+            }
+            
+            if (age >= 18) {
+                resultElement.innerHTML = 'Você é maior de idade!';
+            } else {
+                resultElement.innerHTML = 'Você é menor de idade.';
+            }
+        }
+        
+        // Exercício 2: Calculadora de IMC
+        function calculateBMI() {
+            const weight = parseFloat(document.getElementById('weightInput').value);
+            const height = parseFloat(document.getElementById('heightInput').value);
+            const resultElement = document.getElementById('bmiResult');
+            
+            if (isNaN(weight) || isNaN(height) || height <= 0) {
+                resultElement.innerHTML = 'Por favor, digite valores válidos.';
+                return;
+            }
+            
+            const bmi = weight / (height * height);
+            let classification = '';
+            
+            if (bmi < 18.5) {
+                classification = 'Abaixo do peso';
+            } else if (bmi < 25) {
+                classification = 'Peso normal';
+            } else if (bmi < 30) {
+                classification = 'Sobrepeso';
+            } else if (bmi < 35) {
+                classification = 'Obesidade grau I';
+            } else if (bmi < 40) {
+                classification = 'Obesidade grau II';
+            } else {
+                classification = 'Obesidade grau III';
+            }
+            
+            resultElement.innerHTML = `Seu IMC é ${bmi.toFixed(2)} - ${classification}`;
+        }
+        
+        // Exercício 3: Contador
+        function countNumbers() {
+            const start = parseInt(document.getElementById('startInput').value);
+            const end = parseInt(document.getElementById('endInput').value);
+            const resultElement = document.getElementById('countResult');
+            
+            if (isNaN(start) || isNaN(end)) {
+                resultElement.innerHTML = 'Por favor, digite números válidos.';
+                return;
+            }
+            
+            let result = '';
+            for (let i = start; i <= end; i++) {
+                result += i + ' ';
+            }
+            
+            resultElement.innerHTML = result;
+        }
+        
+        // Exercício 4: Tabuada
+        function generateTable() {
+            const number = parseInt(document.getElementById('numberInput').value);
+            const resultElement = document.getElementById('tableResult');
+            
+            if (isNaN(number)) {
+                resultElement.innerHTML = 'Por favor, digite um número válido.';
+                return;
+            }
+            
+            let result = `<h4>Tabuada do ${number}</h4>`;
+            for (let i = 1; i <= 10; i++) {
+                result += `${number} x ${i} = ${number * i}<br>`;
+            }
+            
+            resultElement.innerHTML = result;
+        }
+        
+        // Exercício 5: Calculadora Simples
+        function calculate(operation) {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const resultElement = document.getElementById('calcResult');
+            
+            if (isNaN(num1) || isNaN(num2)) {
+                resultElement.innerHTML = 'Por favor, digite números válidos.';
+                return;
+            }
+            
+            let result;
+            switch(operation) {
+                case 'add':
+                    result = num1 + num2;
+                    break;
+                case 'subtract':
+                    result = num1 - num2;
+                    break;
+                case 'multiply':
+                    result = num1 * num2;
+                    break;
+                case 'divide':
+                    if (num2 === 0) {
+                        resultElement.innerHTML = 'Erro: Divisão por zero!';
+                        return;
+                    }
+                    result = num1 / num2;
+                    break;
+            }
+            
+            resultElement.innerHTML = `Resultado: ${result}`;
+        }
+        
+        // Exercício 6: Validador de E-mail
+        function validateEmail() {
+            const email = document.getElementById('emailInput').value;
+            const resultElement = document.getElementById('emailResult');
+            
+            if (!email) {
+                resultElement.innerHTML = 'Por favor, digite um e-mail.';
+                return;
+            }
+            
+            // Verifica se tem @ e .
+            const hasAt = email.includes('@');
+            const hasDot = email.includes('.');
+            
+            // Verifica se @ não está no início ou fim
+            const atValidPosition = email.indexOf('@') > 0 && email.indexOf('@') < email.length - 1;
+            
+            // Verifica se . não está no início ou fim
+            const dotValidPosition = email.indexOf('.') > 0 && email.indexOf('.') < email.length - 1;
+            
+            // Verifica se há texto após o último .
+            const lastDotPosition = email.lastIndexOf('.');
+            const textAfterLastDot = lastDotPosition < email.length - 1;
+            
+            if (hasAt && hasDot && atValidPosition && dotValidPosition && textAfterLastDot) {
+                resultElement.innerHTML = 'E-mail válido!';
+            } else {
+                resultElement.innerHTML = 'E-mail inválido!';
+            }
+        }
+    </script>
+</body>
+</html>

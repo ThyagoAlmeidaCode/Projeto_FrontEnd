@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula de JavaScript - Funções</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #6e8efb;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+        }
+        
+        h2 {
+            color: #6e8efb;
+            margin: 20px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        h3 {
+            color: #a777e3;
+            margin: 15px 0 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .content-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Consolas', monospace;
+            line-height: 1.5;
+        }
+        
+        .interactive-demo {
+            background: #f0f8ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #6e8efb;
+        }
+        
+        .exercise {
+            background: #fff0f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #ff6b8b;
+        }
+        
+        .solution {
+            background: #f0fff0;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #32cd32;
+            display: none;
+        }
+        
+        button {
+            background: #6e8efb;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 10px 5px 10px 0;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #5a7df9;
+        }
+        
+        input, select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin: 5px 0;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .result {
+            margin-top: 15px;
+            padding: 15px;
+            background: #e7f3fe;
+            border-radius: 8px;
+            border-left: 5px solid #2196F3;
+        }
+        
+        .toggle-solution {
+            background: #32cd32;
+        }
+        
+        .toggle-solution:hover {
+            background: #28a428;
+        }
+        
+        .tip {
+            background: #fff9e6;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 5px solid #ffc107;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #777;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .code-block {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Funções em JavaScript</h1>
+            <p>Entenda o que são funções, como declarar e como utilizá-las em JavaScript</p>
+        </header>
+        
+        <section class="content-section">
+            <h2>O que são Funções?</h2>
+            <p>Funções são blocos de código reutilizáveis que realizam uma tarefa específica. Elas ajudam a organizar o código, evitar repetição e facilitar a manutenção.</p>
+            
+            <div class="tip">
+                <p>💡 <strong>Analogia:</strong> Imagine uma função como uma receita de bolo. Você define os ingredientes (parâmetros), segue os passos (corpo da função) e no final obtém o bolo (retorno).</p>
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <h2>Como Declarar Funções</h2>
+            
+            <h3>1. Declaração de Função</h3>
+            <div class="code-block">
+                function cumprimentar(nome) {<br>
+                &nbsp;&nbsp;return "Olá, " + nome + "!";<br>
+                }
+            </div>
+            
+            <h3>2. Expressão de Função</h3>
+            <div class="code-block">
+                const cumprimentar = function(nome) {<br>
+                &nbsp;&nbsp;return "Olá, " + nome + "!";<br>
+                };
+            </div>
+            
+            <h3>3. Arrow Function (ES6)</h3>
+            <div class="code-block">
+                const cumprimentar = (nome) => {<br>
+                &nbsp;&nbsp;return "Olá, " + nome + "!";<br>
+                };<br><br>
+                
+                // Ou de forma mais concisa:<br>
+                const cumprimentar = nome => "Olá, " + nome + "!";
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <h2>Partes de uma Função</h2>
+            
+            <div class="code-block">
+                function somar(a, b) {  // a e b são parâmetros<br>
+                &nbsp;&nbsp;return a + b;  // return é o retorno da função<br>
+                }<br><br>
+                
+                // Chamada da função<br>
+                const resultado = somar(5, 3);  // 5 e 3 são argumentos<br>
+                console.log(resultado);  // 8
+            </div>
+            
+            <ul>
+                <li><strong>Parâmetros:</strong> Variáveis listadas na declaração da função</li>
+                <li><strong>Argumentos:</strong> Valores passados para a função quando ela é chamada</li>
+                <li><strong>Return:</strong> Especifica o valor que a função retorna</li>
+                <li><strong>Corpo:</strong> Bloco de código que será executado</li>
+            </ul>
+        </section>
+        
+        <section class="interactive-demo">
+            <h2>Demonstração Interativa</h2>
+            
+            <div class="form-group">
+                <label for="nomeInput">Digite seu nome:</label>
+                <input type="text" id="nomeInput" placeholder="Seu nome">
+            </div>
+            
+            <button onclick="cumprimentarUsuario()">Cumprimentar</button>
+            
+            <div id="demoResult" class="result"></div>
+        </section>
+        
+        <section class="content-section">
+            <h2>Escopo de Variáveis</h2>
+            <p>Variáveis declaradas dentro de uma função têm escopo local, meaning they are only accessible inside that function.</p>
+            
+            <div class="code-block">
+                function exemploEscopo() {<br>
+                &nbsp;&nbsp;const local = "Só existo dentro desta função";<br>
+                &nbsp;&nbsp;console.log(local);  // Funciona<br>
+                }<br><br>
+                
+                exemploEscopo();<br>
+                console.log(local);  // Erro: local is not defined
+            </div>
+        </section>
+        
+        <section class="exercise">
+            <h2>Exercícios</h2>
+            
+            <div class="exercise-item">
+                <h3>Exercício Fácil: Calculadora de Área</h3>
+                <p>Crie uma função que calcule a área de um retângulo.</p>
+                
+                <div class="form-group">
+                    <label for="larguraInput">Largura:</label>
+                    <input type="number" id="larguraInput" placeholder="Largura">
+                </div>
+                
+                <div class="form-group">
+                    <label for="alturaInput">Altura:</label>
+                    <input type="number" id="alturaInput" placeholder="Altura">
+                </div>
+                
+                <button onclick="calcularArea()">Calcular Área</button>
+                <button class="toggle-solution" onclick="toggleSolution('solucao1')">Mostrar Solução</button>
+                
+                <div id="areaResult" class="result"></div>
+                
+                <div id="solucao1" class="solution">
+                    <h4>Solução:</h4>
+                    <div class="code-block">
+                        function calcularArea(largura, altura) {<br>
+                        &nbsp;&nbsp;return largura * altura;<br>
+                        }<br><br>
+                        
+                        // Ou com arrow function:<br>
+                        const calcularArea = (largura, altura) => largura * altura;
+                    </div>
+                </div>
+            </div>
+            
+            <div class="exercise-item">
+                <h3>Exercício Médio: Verificador de Palíndromo</h3>
+                <p>Crie uma função que verifique se uma palavra é um palíndromo (lê-se igual de trás para frente).</p>
+                
+                <div class="form-group">
+                    <label for="palavraInput">Digite uma palavra:</label>
+                    <input type="text" id="palavraInput" placeholder="Palavra">
+                </div>
+                
+                <button onclick="verificarPalindromo()">Verificar</button>
+                <button class="toggle-solution" onclick="toggleSolution('solucao2')">Mostrar Solução</button>
+                
+                <div id="palindromoResult" class="result"></div>
+                
+                <div id="solucao2" class="solution">
+                    <h4>Solução:</h4>
+                    <div class="code-block">
+                        function ehPalindromo(palavra) {<br>
+                        &nbsp;&nbsp;// Converter para minúsculas e remover espaços<br>
+                        &nbsp;&nbsp;const texto = palavra.toLowerCase().replace(/\s/g, '');<br>
+                        &nbsp;&nbsp;// Comparar com a versão invertida<br>
+                        &nbsp;&nbsp;return texto === texto.split('').reverse().join('');<br>
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>Aula de JavaScript - Funções | Desenvolvido para iniciantes em front-end</p>
+        </footer>
+    </div>
+
+    <script>
+        // Função para cumprimentar o usuário
+        function cumprimentarUsuario() {
+            const nome = document.getElementById('nomeInput').value || 'Visitante';
+            const resultado = document.getElementById('demoResult');
+            resultado.innerHTML = `<strong>${cumprimentar(nome)}</strong>`;
+        }
+        
+        // Função de cumprimento
+        function cumprimentar(nome) {
+            return `Olá, ${nome}! Seja bem-vindo(a)!`;
+        }
+        
+        // Exercício 1: Calculadora de Área
+        function calcularArea() {
+            const largura = parseFloat(document.getElementById('larguraInput').value);
+            const altura = parseFloat(document.getElementById('alturaInput').value);
+            const resultado = document.getElementById('areaResult');
+            
+            if (isNaN(largura) || isNaN(altura)) {
+                resultado.innerHTML = 'Por favor, insira valores válidos para largura e altura.';
+                return;
+            }
+            
+            const area = calcularAreaRetangulo(largura, altura);
+            resultado.innerHTML = `A área do retângulo é: <strong>${area}</strong>`;
+        }
+        
+        function calcularAreaRetangulo(largura, altura) {
+            return largura * altura;
+        }
+        
+        // Exercício 2: Verificador de Palíndromo
+        function verificarPalindromo() {
+            const palavra = document.getElementById('palavraInput').value;
+            const resultado = document.getElementById('palindromoResult');
+            
+            if (!palavra) {
+                resultado.innerHTML = 'Por favor, digite uma palavra.';
+                return;
+            }
+            
+            const ehPalindromo = verificarSeEhPalindromo(palavra);
+            
+            if (ehPalindromo) {
+                resultado.innerHTML = `"<strong>${palavra}</strong>" é um palíndromo!`;
+            } else {
+                resultado.innerHTML = `"<strong>${palavra}</strong>" não é um palíndromo.`;
+            }
+        }
+        
+        function verificarSeEhPalindromo(palavra) {
+            // Converter para minúsculas e remover caracteres especiais
+            const texto = palavra.toLowerCase().replace(/[^a-z0-9]/g, '');
+            // Comparar com a versão invertida
+            return texto === texto.split('').reverse().join('');
+        }
+        
+        // Função para mostrar/ocultar soluções
+        function toggleSolution(id) {
+            const solucao = document.getElementById(id);
+            if (solucao.style.display === 'block') {
+                solucao.style.display = 'none';
+            } else {
+                solucao.style.display = 'block';
+            }
+        }
+        
+        // Exemplos adicionais no console
+        console.log("Exemplos de funções:");
+        
+        // Função com valor padrão
+        function multiplicar(a, b = 1) {
+            return a * b;
+        }
+        console.log("Multiplicar 5 × 3:", multiplicar(5, 3));
+        console.log("Multiplicar 7 (b assume valor padrão 1):", multiplicar(7));
+        
+        // Função que retorna outra função
+        function criarMultiplicador(multiplicador) {
+            return function(numero) {
+                return numero * multiplicador;
+            };
+        }
+        
+        const dobrar = criarMultiplicador(2);
+        console.log("Dobrar 8:", dobrar(8));
+    </script>
+</body>
+</html>

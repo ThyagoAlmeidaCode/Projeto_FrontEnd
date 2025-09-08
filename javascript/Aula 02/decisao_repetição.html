@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula JavaScript - Decisão e Repetição</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f8fa;
+        }
+        
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        
+        .container {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .explicacao {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .exercicio {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .resposta {
+            background-color: #e7f7ed;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        input, select {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 5px 0;
+        }
+        
+        .mostrar-resposta {
+            background-color: #2ecc71;
+        }
+        
+        .mostrar-resposta:hover {
+            background-color: #27ae60;
+        }
+        
+        .resultado {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript: Estruturas de Decisão e Repetição</h1>
+    
+    <div class="container">
+        <h2>Estruturas de Decisão</h2>
+        
+        <div class="explicacao">
+            <h3>if, else if, else</h3>
+            <p>As estruturas de decisão permitem que seu código tome decisões com base em condições.</p>
+            <pre>
+if (condição) {
+    // código executado se a condição for verdadeira
+} else if (outraCondição) {
+    // código executado se a outra condição for verdadeira
+} else {
+    // código executado se nenhuma das condições for verdadeira
+}
+            </pre>
+        </div>
+        
+        <div class="explicacao">
+            <h3>switch</h3>
+            <p>O switch é útil quando você tem várias condições para verificar.</p>
+            <pre>
+switch (expressão) {
+    case valor1:
+        // código executado se expressão === valor1
+        break;
+    case valor2:
+        // código executado se expressão === valor2
+        break;
+    default:
+        // código executado se nenhum caso corresponder
+}
+            </pre>
+        </div>
+        
+        <h3>Prática: Verificador de Idade</h3>
+        <p>Digite sua idade e descubra sua classificação etária:</p>
+        
+        <form id="idadeForm">
+            <label for="idade">Idade:</label>
+            <input type="number" id="idade" min="0" max="120" required>
+            <button type="button" onclick="verificarIdade()">Verificar</button>
+        </form>
+        
+        <div id="resultadoIdade" class="resultado"></div>
+    </div>
+    
+    <div class="container">
+        <h2>Estruturas de Repetição</h2>
+        
+        <div class="explicacao">
+            <h3>for</h3>
+            <p>O loop for é usado quando sabemos quantas vezes queremos repetir um bloco de código.</p>
+            <pre>
+for (inicialização; condição; expressão final) {
+    // código a ser repetido
+}
+            </pre>
+        </div>
+        
+        <div class="explicacao">
+            <h3>while</h3>
+            <p>O loop while repete um bloco de código enquanto uma condição for verdadeira.</p>
+            <pre>
+while (condição) {
+    // código a ser repetido
+}
+            </pre>
+        </div>
+        
+        <div class="explicacao">
+            <h3>do while</h3>
+            <p>Similar ao while, mas garante que o código seja executado pelo menos uma vez.</p>
+            <pre>
+do {
+    // código a ser repetido
+} while (condição);
+            </pre>
+        </div>
+        
+        <h3>Prática: Contador</h3>
+        <p>Digite um número e veja a contagem progressiva e regressiva:</p>
+        
+        <form id="contadorForm">
+            <label for="numero">Número:</label>
+            <input type="number" id="numero" min="1" max="50" required>
+            <button type="button" onclick="iniciarContagem()">Iniciar Contagem</button>
+        </form>
+        
+        <div id="resultadoContagem" class="resultado"></div>
+    </div>
+    
+    <div class="container">
+        <h2>Exercícios</h2>
+        
+        <div class="exercicio">
+            <h3>Exercício Fácil 1: Par ou Ímpar</h3>
+            <p>Crie um programa que verifique se um número é par ou ímpar.</p>
+            <form id="parImparForm">
+                <label for="numeroParImpar">Digite um número:</label>
+                <input type="number" id="numeroParImpar" required>
+                <button type="button" onclick="verificarParImpar()">Verificar</button>
+            </form>
+            <div id="resultadoParImpar" class="resultado"></div>
+            <button class="mostrar-resposta" onclick="mostrarResposta('respostaParImpar')">Mostrar Resposta</button>
+            <div id="respostaParImpar" class="resposta">
+                <h4>Solução:</h4>
+                <pre>
+function verificarParImpar() {
+    let numero = parseInt(document.getElementById('numeroParImpar').value);
+    let resultado = document.getElementById('resultadoParImpar');
+    
+    if (numero % 2 === 0) {
+        resultado.innerHTML = `O número ${numero} é PAR.`;
+    } else {
+        resultado.innerHTML = `O número ${numero} é ÍMPAR.`;
+    }
+}
+                </pre>
+            </div>
+        </div>
+        
+        <div class="exercicio">
+            <h3>Exercício Fácil 2: Calculadora Simples</h3>
+            <p>Crie uma calculadora que some dois números.</p>
+            <form id="calculadoraForm">
+                <label for="numero1">Número 1:</label>
+                <input type="number" id="numero1" required>
+                
+                <label for="numero2">Número 2:</label>
+                <input type="number" id="numero2" required>
+                
+                <button type="button" onclick="somar()">Somar</button>
+            </form>
+            <div id="resultadoSoma" class="resultado"></div>
+            <button class="mostrar-resposta" onclick="mostrarResposta('respostaCalculadora')">Mostrar Resposta</button>
+            <div id="respostaCalculadora" class="resposta">
+                <h4>Solução:</h4>
+                <pre>
+function somar() {
+    let numero1 = parseFloat(document.getElementById('numero1').value);
+    let numero2 = parseFloat(document.getElementById('numero2').value);
+    let resultado = document.getElementById('resultadoSoma');
+    
+    let soma = numero1 + numero2;
+    resultado.innerHTML = `A soma de ${numero1} e ${numero2} é ${soma}.`;
+}
+                </pre>
+            </div>
+        </div>
+        
+        <div class="exercicio">
+            <h3>Exercício Médio 1: Tabuada</h3>
+            <p>Crie um programa que mostre a tabuada de um número.</p>
+            <form id="tabuadaForm">
+                <label for="numeroTabuada">Digite um número:</label>
+                <input type="number" id="numeroTabuada" required>
+                <button type="button" onclick="gerarTabuada()">Gerar Tabuada</button>
+            </form>
+            <div id="resultadoTabuada" class="resultado"></div>
+            <button class="mostrar-resposta" onclick="mostrarResposta('respostaTabuada')">Mostrar Resposta</button>
+            <div id="respostaTabuada" class="resposta">
+                <h4>Solução:</h4>
+                <pre>
+function gerarTabuada() {
+    let numero = parseInt(document.getElementById('numeroTabuada').value);
+    let resultado = document.getElementById('resultadoTabuada');
+    let tabuada = '';
+    
+    for (let i = 1; i <= 10; i++) {
+        tabuada += `${numero} x ${i} = ${numero * i}<br>`;
+    }
+    
+    resultado.innerHTML = tabuada;
+}
+                </pre>
+            </div>
+        </div>
+        
+        <div class="exercicio">
+            <h3>Exercício Médio 2: Verificador de Números Primos</h3>
+            <p>Crie um programa que verifique se um número é primo.</p>
+            <form id="primoForm">
+                <label for="numeroPrimo">Digite um número:</label>
+                <input type="number" id="numeroPrimo" min="2" required>
+                <button type="button" onclick="verificarPrimo()">Verificar</button>
+            </form>
+            <div id="resultadoPrimo" class="resultado"></div>
+            <button class="mostrar-resposta" onclick="mostrarResposta('respostaPrimo')">Mostrar Resposta</button>
+            <div id="respostaPrimo" class="resposta">
+                <h4>Solução:</h4>
+                <pre>
+function verificarPrimo() {
+    let numero = parseInt(document.getElementById('numeroPrimo').value);
+    let resultado = document.getElementById('resultadoPrimo');
+    let isPrimo = true;
+    
+    if (numero < 2) {
+        isPrimo = false;
+    } else {
+        for (let i = 2; i < numero; i++) {
+            if (numero % i === 0) {
+                isPrimo = false;
+                break;
+            }
+        }
+    }
+    
+    if (isPrimo) {
+        resultado.innerHTML = `O número ${numero} é PRIMO.`;
+    } else {
+        resultado.innerHTML = `O número ${numero} NÃO é primo.`;
+    }
+}
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Função para verificar idade
+        function verificarIdade() {
+            let idade = parseInt(document.getElementById('idade').value);
+            let resultado = document.getElementById('resultadoIdade');
+            
+            if (idade < 0) {
+                resultado.innerHTML = "Idade inválida. Digite um valor positivo.";
+            } else if (idade < 13) {
+                resultado.innerHTML = "Você é uma criança.";
+            } else if (idade < 18) {
+                resultado.innerHTML = "Você é um adolescente.";
+            } else if (idade < 60) {
+                resultado.innerHTML = "Você é um adulto.";
+            } else {
+                resultado.innerHTML = "Você é um idoso.";
+            }
+        }
+        
+        // Função para iniciar contagem
+        function iniciarContagem() {
+            let numero = parseInt(document.getElementById('numero').value);
+            let resultado = document.getElementById('resultadoContagem');
+            let contagemProgressiva = "";
+            let contagemRegressiva = "";
+            
+            // Contagem progressiva
+            for (let i = 1; i <= numero; i++) {
+                contagemProgressiva += i + " ";
+            }
+            
+            // Contagem regressiva
+            for (let i = numero; i >= 1; i--) {
+                contagemRegressiva += i + " ";
+            }
+            
+            resultado.innerHTML = `<strong>Progressiva:</strong> ${contagemProgressiva}<br>
+                                  <strong>Regressiva:</strong> ${contagemRegressiva}`;
+        }
+        
+        // Função para verificar par ou ímpar (Exercício Fácil 1)
+        function verificarParImpar() {
+            let numero = parseInt(document.getElementById('numeroParImpar').value);
+            let resultado = document.getElementById('resultadoParImpar');
+            
+            if (numero % 2 === 0) {
+                resultado.innerHTML = `O número ${numero} é PAR.`;
+            } else {
+                resultado.innerHTML = `O número ${numero} é ÍMPAR.`;
+            }
+        }
+        
+        // Função para somar (Exercício Fácil 2)
+        function somar() {
+            let numero1 = parseFloat(document.getElementById('numero1').value);
+            let numero2 = parseFloat(document.getElementById('numero2').value);
+            let resultado = document.getElementById('resultadoSoma');
+            
+            let soma = numero1 + numero2;
+            resultado.innerHTML = `A soma de ${numero1} e ${numero2} é ${soma}.`;
+        }
+        
+        // Função para gerar tabuada (Exercício Médio 1)
+        function gerarTabuada() {
+            let numero = parseInt(document.getElementById('numeroTabuada').value);
+            let resultado = document.getElementById('resultadoTabuada');
+            let tabuada = '';
+            
+            for (let i = 1; i <= 10; i++) {
+                tabuada += `${numero} x ${i} = ${numero * i}<br>`;
+            }
+            
+            resultado.innerHTML = tabuada;
+        }
+        
+        // Função para verificar número primo (Exercício Médio 2)
+        function verificarPrimo() {
+            let numero = parseInt(document.getElementById('numeroPrimo').value);
+            let resultado = document.getElementById('resultadoPrimo');
+            let isPrimo = true;
+            
+            if (numero < 2) {
+                isPrimo = false;
+            } else {
+                for (let i = 2; i < numero; i++) {
+                    if (numero % i === 0) {
+                        isPrimo = false;
+                        break;
+                    }
+                }
+            }
+            
+            if (isPrimo) {
+                resultado.innerHTML = `O número ${numero} é PRIMO.`;
+            } else {
+                resultado.innerHTML = `O número ${numero} NÃO é primo.`;
+            }
+        }
+        
+        // Função para mostrar respostas
+        function mostrarResposta(id) {
+            let resposta = document.getElementById(id);
+            if (resposta.style.display === 'block') {
+                resposta.style.display = 'none';
+            } else {
+                resposta.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
