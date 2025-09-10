@@ -1,5 +1,5 @@
-let numero = 10;
-let resultado = document.getElementById("resultado");
+/* let numero = 10;
+let resultado = document.getElementById("resultado"); */
 
 
 /* for (let i = 1; i <= 10; i++) {
@@ -7,12 +7,12 @@ let resultado = document.getElementById("resultado");
 }
  */
  
-let numero2 = 20;
+/* let numero2 = 20;
 
 while (numero2 >= 1) {
     resultado.innerHTML += numero2 + "<br>";
     numero2--;
-} 
+}  */
 
 
 
@@ -29,3 +29,30 @@ while (numero2 >= 1) {
 
     Crie uma página onde o usuário digite um número e, ao clicar no botão, apareça a tabuada desse número de 1 até 10.
 */
+
+/* document.getElementById("btn").addEventListener("click", function() {
+    const numero = document.getElementById("num").value;
+    const resultado = document.getElementById("resultado");
+
+    if (isNaN(numero)) {
+        alert("Por favor, digite um número.");
+    } else {
+        for (let i = 1; i <= numero; i++) {
+            resultado.innerHTML += "O resultado é:" + i + "<br>";
+        }
+    }
+}) */
+
+
+function  tabuada(){
+    const numero = document.getElementById("num").value;
+    const resultado = document.getElementById("resultado");
+
+    if (isNaN(numero)) {
+        alert("Por favor, digite um número.");
+    } else {
+        for (let i = 1; i <= 10; i++) {
+            resultado.innerHTML += numero + "x" + i + "=" + (numero * i) + "<br>";
+        }
+    }
+}
