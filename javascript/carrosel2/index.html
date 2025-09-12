@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrossel de Imagens</title>
+    <style>
+        /* Estilos básicos para o carrossel */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Container do carrossel ocupa 100% da largura */
+        .carrossel {
+            width: 100%;
+            height: 500px;
+            /* Altura fixa, pode ser alterada */
+            position: relative;
+            overflow: hidden;
+            /* Esconde imagens que estão fora da área visível */
+        }
+
+        /* Container das imagens */
+        .carrossel-container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+            /* Animação suave ao trocar de imagem */
+        }
+
+        /* Cada slide do carrossel */
+        .carrossel-slide {
+            min-width: 100%;
+            height: 100%;
+        }
+
+        /* Imagens dentro do slide */
+        .carrossel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Faz a imagem cobrir todo o espaço sem distorcer */
+        }
+
+        /* Botões de navegação */
+        .carrossel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 24px;
+            z-index: 10;
+        }
+
+        .carrossel-btn.prev {
+            left: 10px;
+        }
+
+        .carrossel-btn.next {
+            right: 10px;
+        }
+
+        /* Indicadores (bolinhas que mostram a imagem atual) */
+        .carrossel-indicadores {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .indicador {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+        }
+
+        .indicador.ativo {
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Container principal do carrossel -->
+    <div class="carrossel">
+        <!-- Container das imagens -->
+        <div class="carrossel-container">
+            <!-- Cada div é um slide com uma imagem -->
+            <div class="carrossel-slide">
+                <img src="https://picsum.photos/1200/500?random=1" alt="Imagem 1">
+            </div>
+            <div class="carrossel-slide">
+                <img src="https://picsum.photos/1200/500?random=2" alt="Imagem 2">
+            </div>
+            <div class="carrossel-slide">
+                <img src="https://picsum.photos/1200/500?random=3" alt="Imagem 3">
+            </div>
+        </div>
+
+        <!-- Botões de navegação -->
+        <button class="carrossel-btn prev">&#10094;</button>
+        <button class="carrossel-btn next">&#10095;</button>
+
+        <!-- Indicadores (bolinhas) -->
+        <div class="carrossel-indicadores">
+            <div class="indicador ativo"></div>
+            <div class="indicador"></div>
+            <div class="indicador"></div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
