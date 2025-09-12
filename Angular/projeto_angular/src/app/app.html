@@ -1,0 +1,42 @@
+<main>
+  <h1>{{ titulo }}</h1>
+
+  <img [src]="imagem" class="imagem" alt="">
+  
+  <button type="button" (click)="clicou()">Clique Aqui</button>
+<!-- 
+  <img src="{{imagem}}" class="imagem" alt="">
+ -->
+  <hr>
+  <h1>{{msgDois}}</h1>
+  <p>{{descricaoDois}}</p>
+
+
+  <h1>Exibindo objetos</h1>
+  <p><strong>Nome: </strong> {{pessoa.nome}} </p>
+  <p><strong>Idade: </strong> {{pessoa.idade}} </p>
+
+
+  <hr>
+  <h1>Diretivas</h1>
+  <h2>Diretiva ngIf - Executa uma decisão no html</h2>
+  <p>if - Estrutura de decisao</p>
+  <p>Ex:</p>
+
+  @if (pessoa.idade < 18) {
+    <p>Menor de idade</p>
+  }   @else {
+    <p>{{pessoa.nome}} </p>
+  } 
+
+<p>For - Estrutura de repetição</p>
+<p>Ex:</p>
+
+@for (nome of pessoaCaixa; track nome.nome) {
+  <p>{{nome.nome}}</p>
+  <p>{{nome.idade}}</p>
+}
+
+
+  <hr>
+</main>

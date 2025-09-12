@@ -1,0 +1,128 @@
+# Arquivo .gitignore para projetos Angular
+# Gerado para Angular 22+
+# Evita upload de node_modules e arquivos desnecessários
+
+# Dependências
+/Angular/projeto_angular/node_modules
+/Angular/projeto_angular//node_modules/*
+/.npm
+/.yarn
+/yarn.lock
+/package-lock.json
+
+# Ambiente de desenvolvimento
+/.angular
+/.cache
+/.vscode
+/.idea
+/.vs
+/*.tsbuildinfo
+
+# Build de produção
+/dist
+/bin
+/build
+/*.tgz
+/*.tar.gz
+
+# Arquivos de configuração local
+/.env
+/.env.local
+/.env.development.local
+/.env.test.local
+/.env.production.local
+
+# Logs
+/npm-debug.log*
+/yarn-debug.log*
+/yarn-error.log*
+/lerna-debug.log*
+/*.log
+/logs
+
+# Runtime data
+/pids
+/*.pid
+/*.seed
+/*.pid.lock
+
+# Coverage directory used by tools like istanbul
+/coverage
+/*.lcov
+/.nyc_output
+
+# Sistemas operacionais
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+*.swp
+*.swo
+*~
+
+# Arquivos temporários
+/.tmp
+/.temp
+/tmp
+/temp
+
+# Arquivos de cache do sistema
+/.cache-loader
+/.eslintcache
+
+# Testes unitários
+/.karma
+/.jest
+
+# Documentação
+/docs
+
+# Backup
+*.backup
+*.bak
+
+# Arquivos de usuário
+/.sass-cache
+/.node_repl_history
+
+# Arquivos de licença (gerados automaticamente)
+/LICENSE-*
+
+# Arquivos do Windows
+/Thumbs.db
+
+# Arquivos do MacOS
+/.DS_Store
+
+# Arquivos do Linux
+*~
+
+# Arquivos de produção que devem ser ignorados
+/server
+/.firebase
+/.netlify
+
+# Arquivos de configuração específicos do projeto
+/.firebaserc
+/firebase.json
+/netlify.toml
+/now.json
+/vercel.json
+
+# Arquivos de ambiente específicos
+/.env.example
+
+# Arquivos de métricas de bundle
+/*-bundle-*.json
+/stats.json
+
+# Arquivos de análise de bundle
+/webpack-stats.json
+
+# Arquivos de configuração de debug
+/.vscode/launch.json
