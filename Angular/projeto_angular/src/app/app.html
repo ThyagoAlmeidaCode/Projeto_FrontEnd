@@ -23,7 +23,7 @@
   <p>if - Estrutura de decisao</p>
   <p>Ex:</p>
 
-  @if (pessoa.idade < 18) {
+<!--   @if (pessoa.idade < 18) {
     <p>Menor de idade</p>
   }   @else {
     <p>{{pessoa.nome}} </p>
@@ -35,7 +35,21 @@
 @for (nome of pessoaCaixa; track nome.nome) {
   <p>{{nome.nome}}</p>
   <p>{{nome.idade}}</p>
-}
+} -->
+
+<p *ngIf="pessoa.idade >= 18">{{pessoa.nome}}</p>
+
+<hr>
+
+<p>ngFor - Estrutura de repetição</p>
+<p>Ex:</p>
+
+<div *ngFor="let daniel of pessoaCaixa">
+    <hr>
+    <p><strong>Nome: </strong>{{daniel.nome}}</p>
+    <p><strong>Idade: </strong>{{daniel.idade}}</p>
+    <p><strong>Altura: </strong>{{daniel.altura}}</p>
+</div>
 
 
   <hr>

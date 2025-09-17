@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Tutorial Angular 20 - ToDo List (Standalone)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.6;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 10px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    h2 {
+      color: darkblue;
+    }
+  </style>
+</head>
+<body>
+  <h1>🚀 Tutorial Angular 20 - Criando um ToDo List (Standalone)</h1>
+  <p>Vamos criar um sistema simples de lista de tarefas (ToDo) usando <strong>Angular 20</strong> com  
+  <strong>Standalone Components</strong>. Teremos apenas <strong>um componente</strong> e usaremos um  
+  <strong>array</strong> para armazenar as tarefas.</p>
+
+  <h2>1️⃣ Criar o projeto</h2>
+  <pre>
+ng new todo-angular --standalone
+cd todo-angular
+ng serve
+  </pre>
+  <p>Abra no navegador <code>http://localhost:4200</code>.</p>
+
+  <h2>2️⃣ Editar o <code>app.component.ts</code></h2>
+  <pre>
+// Importa as funcionalidades básicas
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms'; // Necessário para usar [(ngModel)]
+import { NgFor, NgIf } from '@angular/common'; // Para *ngFor e *ngIf
+
+@Component({
+  selector: 'app-root',
+  standalone: true, // Esse componente é independente (sem NgModule)
+  imports: [FormsModule, NgFor, NgIf], // Importamos aqui os recursos necessários
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
+})
+export class AppComponent {
+  // Array que armazena as tarefas
+  tarefas: { titulo: string, feito: boolean }[] = [];
+
+  // Variável ligada ao campo de input
+  novaTarefa: string = '';
+
+  // Adiciona uma nova tarefa
+  adicionarTarefa() {
+    if (this.novaTarefa.trim() !== '') {
+      this.tarefas.push({ titulo: this.novaTarefa, feito: false });
+      this.novaTarefa = ''; // Limpa o campo
+    }
+  }
+
+  // Alterna o estado de concluída da tarefa
+  alternarFeito(index: number) {
+    this.tarefas[index].feito = !this.tarefas[index].feito;
+  }
+
+  // Remove uma tarefa
+  removerTarefa(index: number) {
+    this.tarefas.splice(index, 1);
+  }
+}
+  </pre>
+
+  <h2>3️⃣ Criar o HTML (<code>app.component.html</code>)</h2>
+  <pre>
+<h1>✅ Minha Lista de Tarefas</h1>
+
+<!-- Campo para digitar nova tarefa -->
+<input type="text" [(ngModel)]="novaTarefa" placeholder="Digite uma tarefa" />
+<button (click)="adicionarTarefa()">Adicionar</button>
+
+<hr>
+
+<!-- Listagem das tarefas -->
+<ul>
+  <li *ngFor="let tarefa of tarefas; let i = index">
+    <!-- Botão para marcar como feito -->
+    <input type="checkbox" [checked]="tarefa.feito" (change)="alternarFeito(i)" />
+
+    <!-- Exibe o título da tarefa, riscando se estiver concluída -->
+    <span [style.textDecoration]="tarefa.feito ? 'line-through' : 'none'">
+      {{ tarefa.titulo }}
+    </span>
+
+    <!-- Botão para remover -->
+    <button (click)="removerTarefa(i)">Remover</button>
+  </li>
+</ul>
+  </pre>
+
+  <h2>4️⃣ Editar o arquivo <code>main.ts</code></h2>
+  <pre>
+// main.ts
+import { bootstrapApplication } from '@angular/platform-browser';
+import { AppComponent } from './app/app.component';
+
+// Inicializa a aplicação usando o AppComponent standalone
+bootstrapApplication(AppComponent)
+  .catch(err => console.error(err));
+  </pre>
+
+  <h2>5️⃣ Resultado final</h2>
+  <p>Agora você já consegue:</p>
+  <ul>
+    <li>✅ Adicionar tarefas</li>
+    <li>✅ Marcar tarefas como concluídas</li>
+    <li>✅ Remover tarefas</li>
+  </ul>
+
+  <p>Abra o navegador em <code>http://localhost:4200</code> e teste sua aplicação 🎉</p>
+</body>
+</html>

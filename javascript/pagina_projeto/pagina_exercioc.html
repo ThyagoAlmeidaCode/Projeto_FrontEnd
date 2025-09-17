@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício: Identificando Erros em JavaScript</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .intro {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .code-example {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        
+        .code-header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .code-content {
+            padding: 20px;
+            position: relative;
+        }
+        
+        pre {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            tab-size: 4;
+            -moz-tab-size: 4;
+        }
+        
+        textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: monospace;
+            margin-top: 15px;
+            resize: vertical;
+        }
+        
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        .suggestions {
+            background-color: #e8f4fc;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: none;
+        }
+        
+        .hint {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        
+        .toggle-btn {
+            background: none;
+            border: none;
+            color: #7f8c8d;
+            cursor: pointer;
+            font-size: 14px;
+            padding: 0;
+        }
+        
+        .toggle-btn:hover {
+            color: #2c3e50;
+            text-decoration: underline;
+        }
+        
+        .corrected-code {
+            background-color: #e8f6ef;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exercício: Identificando Erros em JavaScript</h1>
+    
+    <div class="intro">
+        <p>Esta página contém 5 trechos de código JavaScript com problemas. Sua tarefa é:</p>
+        <ol>
+            <li>Identificar os erros e más práticas em cada código</li>
+            <li>Descrever os problemas encontrados</li>
+            <li>Com auxílio da IA, sugerir melhorias seguindo boas práticas</li>
+        </ol>
+        <p>Clique em "Ver Dicas" para obter ajuda na identificação dos problemas.</p>
+    </div>
+    
+    <!-- Exemplo 1 -->
+    <div class="code-example">
+        <div class="code-header">
+            <h3>Exemplo 1: Manipulação de DOM e Eventos</h3>
+            <button class="toggle-btn" onclick="toggleHint(1)">Ver Dicas</button>
+        </div>
+        <div class="code-content">
+            <pre><code>function adicionarItem() {
+    var item = document.getElementById('itemInput').value;
+    var lista = document.getElementById('listaItens');
+    
+    if (item != '') {
+        var li = document.createElement('li');
+        li.innerHTML = item;
+        lista.appendChild(li);
+        document.getElementById('itemInput').value = '';
+    } else {
+        alert('Por favor, digite um item!');
+    }
+}
+
+document.querySelector('button').onclick = adicionarItem;</code></pre>
+            
+            <div class="hint" id="hint-1" style="display: none;">
+                <p><strong>Dicas:</strong> Problemas com seleção de elementos, manipulação de eventos e segurança.</p>
+            </div>
+            
+            <textarea id="issues-1" placeholder="Descreva os problemas que você identificou neste código..."></textarea>
+            
+            <button onclick="showSuggestions(1)">Ver Sugestões de Melhoria</button>
+            
+            <div class="suggestions" id="suggestions-1">
+                <h4>Sugestões de Melhoria:</h4>
+                <ul>
+                    <li>Usar <code>addEventListener</code> em vez de atribuir diretamente ao <code>onclick</code></li>
+                    <li>Validar melhor a entrada do usuário (trim() para remover espaços em branco)</li>
+                    <li>Usar <code>textContent</code> em vez de <code>innerHTML</code> para prevenir ataques XSS</li>
+                    <li>Melhorar a seleção do botão (usar ID ou classe específica)</li>
+                    <li>Considerar acessibilidade (ARIA attributes, feedback para usuários)</li>
+                </ul>
+                
+                <button class="toggle-btn" onclick="toggleCorrectedCode(1)">Ver Código Corrigido</button>
+                
+                <div class="corrected-code" id="corrected-code-1">
+                    <pre><code>document.addEventListener('DOMContentLoaded', function() {
+    const addButton = document.getElementById('addButton');
+    const itemInput = document.getElementById('itemInput');
+    const itemList = document.getElementById('listaItens');
+    
+    addButton.addEventListener('click', addItem);
+    
+    function addItem() {
+        const itemText = itemInput.value.trim();
+        
+        if (itemText) {
+            const listItem = document.createElement('li');
+            listItem.textContent = itemText;
+            itemList.appendChild(listItem);
+            itemInput.value = '';
+            itemInput.focus();
+        } else {
+            alert('Por favor, digite um item válido!');
+        }
+    }
+});</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Exemplo 2 -->
+    <div class="code-example">
+        <div class="code-header">
+            <h3>Exemplo 2: Função de Calculadora</h3>
+            <button class="toggle-btn" onclick="toggleHint(2)">Ver Dicas</button>
+        </div>
+        <div class="code-content">
+            <pre><code>function calculadora(a, b, operacao) {
+    var resultado;
+    
+    if (operacao == '+') {
+        resultado = a + b;
+    }
+    if (operacao == '-') {
+        resultado = a - b;
+    }
+    if (operacao == '*') {
+        resultado = a * b;
+    }
+    if (operacao == '/') {
+        if (b != 0) {
+            resultado = a / b;
+        } else {
+            resultado = 'Erro: Divisão por zero';
+        }
+    }
+    
+    console.log('O resultado é: ' + resultado);
+    return resultado;
+}</code></pre>
+            
+            <div class="hint" id="hint-2" style="display: none;">
+                <p><strong>Dicas:</strong> Problemas com estrutura condicional, tratamento de erros e validação de parâmetros.</p>
+            </div>
+            
+            <textarea id="issues-2" placeholder="Descreva os problemas que você identificou neste código..."></textarea>
+            
+            <button onclick="showSuggestions(2)">Ver Sugestões de Melhoria</button>
+            
+            <div class="suggestions" id="suggestions-2">
+                <h4>Sugestões de Melhoria:</h4>
+                <ul>
+                    <li>Usar <code>switch/case</code> ou objeto de operações em vez de múltiplos <code>if</code></li>
+                    <li>Validar os parâmetros de entrada (tipos e valores)</li>
+                    <li>Melhorar o tratamento de erro para divisão por zero</li>
+                    <li>Considerar usar Number() para garantir que os parâmetros sejam números</li>
+                    <li>Adicionar default case para operações não suportadas</li>
+                </ul>
+                
+                <button class="toggle-btn" onclick="toggleCorrectedCode(2)">Ver Código Corrigido</button>
+                
+                <div class="corrected-code" id="corrected-code-2">
+                    <pre><code>function calculadora(a, b, operacao) {
+    const numA = Number(a);
+    const numB = Number(b);
+    
+    if (isNaN(numA) || isNaN(numB)) {
+        throw new Error('Parâmetros devem ser números válidos');
+    }
+    
+    const operacoes = {
+        '+': () => numA + numB,
+        '-': () => numA - numB,
+        '*': () => numA * numB,
+        '/': () => {
+            if (numB === 0) {
+                throw new Error('Divisão por zero não é permitida');
+            }
+            return numA / numB;
+        }
+    };
+    
+    if (!operacoes.hasOwnProperty(operacao)) {
+        throw new Error('Operação não suportada');
+    }
+    
+    const resultado = operacoes[operacao]();
+    console.log(`O resultado é: ${resultado}`);
+    return resultado;
+}</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Exemplo 3 -->
+    <div class="code-example">
+        <div class="code-header">
+            <h3>Exemplo 3: Manipulação de Array</h3>
+            <button class="toggle-btn" onclick="toggleHint(3)">Ver Dicas</button>
+        </div>
+        <div class="code-content">
+            <pre><code>var numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+var pares = [];
+var impares = [];
+
+for (var i = 0; i < numeros.length; i++) {
+    if (numeros[i] % 2 == 0) {
+        pares.push(numeros[i]);
+    } else {
+        impares.push(numeros[i]);
+    }
+}
+
+function mostrarResultados() {
+    console.log('Números pares: ' + pares);
+    console.log('Números ímpares: ' + impares);
+    
+    document.write('&lt;p&gt;Pares: ' + pares + '&lt;/p&gt;');
+    document.write('&lt;p&gt;Ímpares: ' + impares + '&lt;/p&gt;');
+}
+
+mostrarResultados();</code></pre>
+            
+            <div class="hint" id="hint-3" style="display: none;">
+                <p><strong>Dicas:</strong> Problemas com métodos de array, uso de document.write e escopo de variáveis.</p>
+            </div>
+            
+            <textarea id="issues-3" placeholder="Descreva os problemas que você identificou neste código..."></textarea>
+            
+            <button onclick="showSuggestions(3)">Ver Sugestões de Melhoria</button>
+            
+            <div class="suggestions" id="suggestions-3">
+                <h4>Sugestões de Melhoria:</h4>
+                <ul>
+                    <li>Evitar o uso de <code>document.write()</code> que sobrescreve o documento</li>
+                    <li>Usar métodos funcionais de array como <code>filter()</code></li>
+                    <li>Usar <code>const</code> e <code>let</code> em vez de <code>var</code></li>
+                    <li>Separar a lógica de processamento da exibição</li>
+                    <li>Melhorar a formatação da saída</li>
+                </ul>
+                
+                <button class="toggle-btn" onclick="toggleCorrectedCode(3)">Ver Código Corrigido</button>
+                
+                <div class="corrected-code" id="corrected-code-3">
+                    <pre><code>function separarParesImpares(numeros) {
+    return {
+        pares: numeros.filter(num => num % 2 === 0),
+        impares: numeros.filter(num => num % 2 !== 0)
+    };
+}
+
+function exibirResultados(pares, impares) {
+    const resultadosDiv = document.getElementById('resultados');
+    
+    resultadosDiv.innerHTML = `
+        &lt;p&gt;Números pares: ${pares.join(', ')}&lt;/p&gt;
+        &lt;p&gt;Números ímpares: ${impares.join(', ')}&lt;/p&gt;
+    `;
+}
+
+// Uso
+const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const { pares, impares } = separarParesImpares(numeros);
+
+console.log('Números pares:', pares);
+console.log('Números ímpares:', impares);
+
+document.addEventListener('DOMContentLoaded', () => {
+    exibirResultados(pares, impares);
+});</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Exemplo 4 -->
+    <div class="code-example">
+        <div class="code-header">
+            <h3>Exemplo 4: Requisição AJAX</h3>
+            <button class="toggle-btn" onclick="toggleHint(4)">Ver Dicas</button>
+        </div>
+        <div class="code-content">
+            <pre><code>function buscarDados() {
+    var xhr = new XMLHttpRequest();
+    var url = "https://api.exemplo.com/dados";
+    
+    xhr.open("GET", url, true);
+    
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+            var data = JSON.parse(xhr.responseText);
+            mostrarDados(data);
+        }
+    };
+    
+    xhr.send();
+}
+
+function mostrarDados(dados) {
+    var div = document.getElementById("resultado");
+    for (var i = 0; i < dados.length; i++) {
+        div.innerHTML += "&lt;div&gt;" + dados[i].nome + " - " + dados[i].valor + "&lt;/div&gt;";
+    }
+}
+
+buscarDados();</code></pre>
+            
+            <div class="hint" id="hint-4" style="display: none;">
+                <p><strong>Dicas:</strong> Problemas com tratamento de erros, manipulação de DOM e uso de tecnologias modernas.</p>
+            </div>
+            
+            <textarea id="issues-4" placeholder="Descreva os problemas que você identificou neste código..."></textarea>
+            
+            <button onclick="showSuggestions(4)">Ver Sugestões de Melhoria</button>
+            
+            <div class="suggestions" id="suggestions-4">
+                <h4>Sugestões de Melhoria:</h4>
+                <ul>
+                    <li>Adicionar tratamento de erros para a requisição</li>
+                    <li>Verificar o status HTTP (200) antes de processar a resposta</li>
+                    <li>Usar <code>fetch API</code> em vez de <code>XMLHttpRequest</code> para código mais moderno</li>
+                    <li>Evitar concatenação direta com <code>innerHTML</code> (usar elementos DOM ou templates)</li>
+                    <li>Considerar async/await para melhor legibilidade</li>
+                </ul>
+                
+                <button class="toggle-btn" onclick="toggleCorrectedCode(4)">Ver Código Corrigido</button>
+                
+                <div class="corrected-code" id="corrected-code-4">
+                    <pre><code>async function buscarDados() {
+    try {
+        const response = await fetch('https://api.exemplo.com/dados');
+        
+        if (!response.ok) {
+            throw new Error(`Erro HTTP: ${response.status}`);
+        }
+        
+        const dados = await response.json();
+        mostrarDados(dados);
+    } catch (error) {
+        console.error('Falha ao buscar dados:', error);
+        exibirErro('Não foi possível carregar os dados.');
+    }
+}
+
+function mostrarDados(dados) {
+    const container = document.getElementById('resultado');
+    container.innerHTML = ''; // Limpar conteúdo anterior
+    
+    dados.forEach(item => {
+        const elemento = document.createElement('div');
+        elemento.textContent = `${item.nome} - ${item.valor}`

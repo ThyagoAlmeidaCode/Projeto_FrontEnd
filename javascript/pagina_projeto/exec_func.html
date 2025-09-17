@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Exercícios — Funções (Nível Médio)</title>
+  <style>
+    :root{--bg:#f6f9fc;--card:#ffffff;--accent:#0b6efd;--text:#102a43}
+    *{box-sizing:border-box}
+    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;line-height:1.5;color:var(--text);background:var(--bg);margin:0;padding:24px}
+    .container{max-width:900px;margin:0 auto}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+    h1{font-size:1.6rem;margin:0}
+    p.lead{color:#475569;margin-top:6px}
+    .card{background:var(--card);padding:20px;border-radius:10px;box-shadow:0 6px 18px rgba(16,42,67,0.06);margin-bottom:16px}
+    ol{padding-left:1.2rem}
+    li{margin:14px 0}
+    code{background:#f1f5f9;padding:2px 6px;border-radius:6px;font-family:monospace}
+    .controls{display:flex;gap:8px}
+    button{background:var(--accent);color:#fff;border:0;padding:8px 12px;border-radius:8px;cursor:pointer}
+    button.secondary{background:#64748b}
+    footer{margin-top:24px;color:#64748b;font-size:0.9rem;text-align:center}
+    @media (max-width:600px){body{padding:12px}h1{font-size:1.25rem}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>Exercícios — Funções</h1>
+        <p class="lead">Conjunto de enunciados para revisão em sala. Peça aos alunos para implementar cada item usando funções em JavaScript.</p>
+      </div>
+      <div class="controls">
+        <button onclick="window.print()">Imprimir</button>
+        <button class="secondary" onclick="downloadHTML()">Baixar .html</button>
+      </div>
+    </header>
+
+    <main>
+      <div class="card">
+        <ol>
+          <li>
+            <strong>Contar vogais em uma palavra</strong>
+            <p>Crie uma função <code>contarVogais(palavra)</code> que receba uma string e retorne o número de vogais (a, e, i, o, u) presentes. Considere maiúsculas e minúsculas.</p>
+          </li>
+
+          <li>
+            <strong>Filtrar números pares de um array</strong>
+            <p>Crie uma função <code>filtrarPares(numeros)</code> que receba um array de números e retorne um novo array contendo apenas os números pares.</p>
+          </li>
+
+          <li>
+            <strong>Capitalizar palavras</strong>
+            <p>Crie uma função <code>capitalizar(frase)</code> que receba uma frase e retorne a mesma frase com a primeira letra de cada palavra em maiúsculo.</p>
+          </li>
+
+          <li>
+            <strong>Calcular IMC</strong>
+            <p>Crie uma função <code>calcularIMC(peso, altura)</code> que retorne um objeto ou string contendo o valor do IMC com duas casas decimais e a classificação (Abaixo do peso, Peso normal, Sobrepeso, Obesidade).</p>
+          </li>
+
+          <li>
+            <strong>Palíndromo</strong>
+            <p>Crie uma função <code>ehPalindromo(palavra)</code> que verifique se a palavra é palíndroma. A função deve ignorar diferenças entre maiúsculas e minúsculas.</p>
+          </li>
+
+          <li>
+            <strong>Somar números de um array</strong>
+            <p>Crie uma função <code>somarNumeros(numeros)</code> que retorne a soma de todos os elementos numéricos do array.</p>
+          </li>
+
+          <li>
+            <strong>Função de desconto progressivo</strong>
+            <p>Crie uma função <code>calcularDesconto(valor, desconto)</code> que aplique a porcentagem de desconto sobre o valor e retorne o valor final. Se o desconto for maior que 50%, retorne a mensagem <code>"Desconto inválido"</code>.</p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <h3>Sugestões de uso em sala</h3>
+        <ul>
+          <li>Peça para os alunos escreverem a solução em <code>function</code>, depois reescrever com <code>arrow function</code>.</li>
+          <li>Combine exercícios: por exemplo, use <code>filtrarPares</code> e depois <code>somarNumeros</code> no mesmo conjunto de dados.</li>
+          <li>Incentive tratamento de erros (parâmetros inválidos) e comentários explicando a lógica.</li>
+        </ul>
+      </div>
+
+    </main>
+
+    <footer>
+      Página gerada para revisão — pronto para impressão ou distribuição aos alunos.
+    </footer>
+  </div>
+
+  <script>
+    function downloadHTML() {
+      const content = document.documentElement.outerHTML;
+      const blob = new Blob([content], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'exercicios-funcoes-nivel-medio.html';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>

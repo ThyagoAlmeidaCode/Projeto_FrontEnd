@@ -5,6 +5,10 @@
 # Dependências
 /Angular/projeto_angular/node_modules
 /Angular/projeto_angular//node_modules/*
+/Angular/todo/node_modules
+/Angular/todo//node_modules/*
+/Angular/todo_2/node_modules
+/Angular/todo_2//node_modules/*
 /.npm
 /.yarn
 /yarn.lock

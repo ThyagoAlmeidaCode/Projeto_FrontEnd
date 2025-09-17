@@ -1,0 +1,30 @@
+<main class="container">
+  <h1>Lista de Tarefas</h1>
+
+  <!-- Formulário para adicionar nova tarefa -->
+  <section class="add-todo">
+    <input type="text" [(ngModel)]="newTarefas" placeholder="Adicione uma nova tarefa" class="todo-input">
+    <button (click)="addTarefa()" class="add-button">Adicionar</button>
+  </section>
+
+  <!-- Lista de tarefas -->
+  <section class="todo-list">
+    <div>
+      <input type="checkbox" class="todo-checkbox">
+
+      <span class="todo-text"></span>
+
+      <input class="edit-input">
+
+      <div class="todo-actions">
+        <button class="edit-btn"></button>
+        <button class="delete-btn">Remover</button>
+      </div>
+    </div>
+
+    <section class="empty-state">
+      Nenhuma tarefa cadastrada. Adicione uma nova tarefa acima!
+    </section>
+  </section>
+</main>
+<router-outlet />
