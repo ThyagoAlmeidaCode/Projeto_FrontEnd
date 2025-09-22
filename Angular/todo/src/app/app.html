@@ -1,59 +1,9 @@
+<header>
+  <app-header></app-header>
+</header>
 
-<div class="container">
-  <h1>Lista de Tarefas</h1>
-  
-  <!-- Formulário para adicionar nova tarefa -->
-  <div class="add-todo">
-    <input 
-      type="text"      
-      [(ngModel)]="newTodoTitle"
-      placeholder="Digite uma nova tarefa..."
-      (keyup.enter)="addTodo()"
-      class="todo-input"
-    >
-    <button (click)="addTodo()" class="add-button">Adicionar</button>
-  </div>
-  
-  <!-- Lista de tarefas -->
-  <div class="todo-list">
-    <div 
-      *ngFor="let todo of todos" 
-      class="todo-item"
-      [class.completed]="todo.completed"
-    >
-      <input 
-        type="checkbox" 
-        [checked]="todo.completed" 
-        (change)="toggleTodo(todo.id)"
-        class="todo-checkbox"
-      >
-      
-      <span *ngIf="!todo.editing" class="todo-text">
-        {{ todo.title }}
-      </span>
-      
-      <input 
-        *ngIf="todo.editing" 
-        type="text" 
-        [value]="todo.title"
-        #editInput
-        (blur)="editTodo(todo.id, editInput.value)"
-        (keyup.enter)="editTodo(todo.id, editInput.value)"
-        (keyup.escape)="cancelEdit(todo.id)"
-        class="edit-input"
-      >
-      
-      <div class="todo-actions">
-        <button (click)="todo.editing = !todo.editing" class="edit-btn">
-          {{ todo.editing ? 'Cancelar' : 'Editar' }}
-        </button>
-        <button (click)="removeTodo(todo.id)" class="delete-btn">Remover</button>
-      </div>
-    </div>
-    
-    <div *ngIf="todos.length === 0" class="empty-state">
-      Nenhuma tarefa cadastrada. Adicione uma nova tarefa acima!
-    </div>
-  </div>
-</div>
+
+<main>
+  <app-list-tarefas></app-list-tarefas>
+</main>
 <router-outlet />

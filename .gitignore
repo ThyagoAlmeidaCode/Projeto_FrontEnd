@@ -9,6 +9,7 @@
 /Angular/todo//node_modules/*
 /Angular/todo_2/node_modules
 /Angular/todo_2//node_modules/*
+/react/meu_projeto/node_modules/*
 /.npm
 /.yarn
 /yarn.lock
