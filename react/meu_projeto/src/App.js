@@ -1,16 +1,11 @@
-import './App.css';
-import MeuNome from './components/props/meuNome';
-
+import "./App.css";
+import Contador from "./components/userstate/contador";
 
 function App() {
- 
-
   return (
-    <section className="App">{/* Lembrar className */}
-
-      <MeuNome nome="Thyago" sobrenome="Almeida" idade={43} />
-      <MeuNome nome="Maria" />
-      <MeuNome nome="João" sobrenome="Silva" />
+    <section className="App">
+      {/* Lembrar className */}
+      <Contador />
     </section>
   );
 }
