@@ -1,11 +1,16 @@
 import "./App.css";
-import Contador from "./components/userstate/contador";
+import Evento from "./components/props/evento";
+import Form from "./components/formulario";
 
 function App() {
   return (
     <section className="App">
       {/* Lembrar className */}
-      <Contador />
+
+      <Evento numero={1} />
+      <Evento numero={2} />
+
+      <Form />
     </section>
   );
 }
