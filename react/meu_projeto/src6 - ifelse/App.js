@@ -1,12 +1,12 @@
 import "./App.css";
-import Loop from "./components/loop/loop";
+import Condicao from "./components/ifelse/ifelse";
 
 function App() {
   return (
     <section className="App">
       {/* Lembrar className */}
       
-      <Loop />
+      <Condicao />
     </section>
   );
 }
