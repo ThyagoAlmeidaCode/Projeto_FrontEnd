@@ -1,12 +1,12 @@
 import "./App.css";
-import Loop from "./components/loop/loop";
+import Todo from "./components/todo/todo";
 
 function App() {
   return (
     <section className="App">
       {/* Lembrar className */}
       
-      <Loop />
+      <Todo />
     </section>
   );
 }
